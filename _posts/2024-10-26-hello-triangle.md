@@ -8,9 +8,6 @@ tags: [Metal, MetalKit, Computer Graphics, 3D, Rendering, GPU, Apple, MacOS]
 
 ![Hello Triangle Animated](../img/2024-10-26-hello-triangle/triangle.gif)
 
-This article is loosely based on [Donald Pinckney Post](https://donaldpinckney.com/metal/2018/07/05/metal-intro-1.html)
-The __XCode project__ can be download here and contains comments of all steps.
-In this project we start from a UIKit Storyboard, then add an MKTView to display the Metal content.
 
 ### What is metal?
 
@@ -41,6 +38,12 @@ The stages of the Metal pipeline are summarized in the following list. Note that
 ---
 
 ## Project Setup
+
+This article is loosely based on [Donald Pinckney Post](https://donaldpinckney.com/metal/2018/07/05/metal-intro-1.html).
+The __XCode project__ can be download here and contains comments of all steps.
+In this project we start from a UIKit Storyboard, then add an MKTView to display the Metal content.
+
+![Hello Triangle Animated](../img/2024-10-26-hello-triangle/UiKitMetalApp.png)
 
 To create a basic one-window macOS app for Metal in Xcode:
 
