@@ -9,7 +9,7 @@ tags: [Linear Algebra, Systems of Linear Equation, Determinant, Ai, Machine Lear
 # Systems of Linear Equation
 ## The Determinant
 
-<img src="/assets/Math/2024-10-27-systems-of-linear-equation/img/summary.png" width="300"/>
+![summary](/assets/Math/2024-10-27-systems-of-linear-equation/img/summary.png){: width="300"}
 
 ---
 ### Systems of Sentences
