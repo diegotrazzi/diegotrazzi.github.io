@@ -6,7 +6,9 @@ categories: [Metal]
 tags: [Metal, MetalKit, Computer Graphics, 3D, Rendering, GPU, Apple, MacOS]
 ---
 
-![Hello Triangle Animated](../img/2024-10-26-hello-triangle/triangle.gif)
+![Hello Triangle Animated](../../assets/Metal/2024-10-26-hello-triangle/img/triangle.gif)
+
+The __XCode project__ can be download [here](../../assets/RainbowTriangle.zip) and contains detailed comments for all steps.
 
 
 ### What is metal?
@@ -34,24 +36,24 @@ The stages of the Metal pipeline are summarized in the following list. Note that
 4. Rasterization: Converts 2D geometric data into discrete pixels and interpolates vertex data across each pixel.
 5. Fragment Shader: Uses interpolated pixel data from the rasterizer to determine each pixel’s final color.
 
+![alt text](../../assets/Metal/2024-10-26-hello-triangle/img/metal-render-pipline.png)
 
 ---
 
 ## Project Setup
 
 This article is loosely based on [Donald Pinckney Post](https://donaldpinckney.com/metal/2018/07/05/metal-intro-1.html).
-The __XCode project__ can be download here and contains comments of all steps.
 In this project we start from a UIKit Storyboard, then add an MKTView to display the Metal content.
 
-![Hello Triangle Animated](../img/2024-10-26-hello-triangle/UiKitMetalApp.png)
+![Hello Triangle Animated](../../assets/Metal/2024-10-26-hello-triangle/img/UiKitMetalApp.png)
 
 To create a basic one-window macOS app for Metal in Xcode:
 
 1. Open Xcode and select “Create a new Xcode project.”
-1. Choose “Cocoa App” under “macOS.”
-1. Set the language to Swift, and check “Use Storyboards” (leave “Create Document-Based Application” unchecked).
-1. Name the project and select a save location.
-1. Run the app (⌘R) to verify a blank window appears, which will later display your 3D graphics.
+2. Choose “Cocoa App” under “macOS.”
+3. Set the language to Swift, and check “Use Storyboards” (leave “Create Document-Based Application” unchecked).
+4. Name the project and select a save location.
+5. Run the app (⌘R) to verify a blank window appears, which will later display your 3D graphics.
 
 This sets up a macOS app with a window for rendering Metal content.
 
@@ -63,18 +65,22 @@ To set up an MTKView for Metal rendering start by modifying the Storyboard and c
 #### Step 1: Import the Required Frameworks
 
 You need to import the Metal and MetalKit frameworks at the beginning of your Swift file:
-
-    import Metal
-    import MetalKit
+    
+```swift
+import Metal
+import MetalKit
+```
 
 #### Step 2: Create the View Controller Class
 
 Create a class that inherits from NSViewController:
 
+```swift
     class ViewController: NSViewController {
         var mtkView: MTKView!
         var renderer: Renderer!
     }
+```
 
 #### Step 3: Implement the viewDidLoad Method
 
@@ -82,32 +88,40 @@ In this method, you will initialize your MTKView and set up the Metal device:
 
 1.	Save the MTKView: Use type casting to ensure the view is an MTKView. If it isn’t, print an error message.
 
+```swift
         guard let mtkViewTemp = self.view as? MTKView else {
             print("View attached to ViewController is not an MTKView!")
             return
         }
         mtkView = mtkViewTemp
+```
 
 2. Create the Default Metal Device: Retrieve the default GPU device using MTLCreateSystemDefaultDevice(). If it’s not supported, print an error message.
 
+```swift
         guard let defaultDevice = MTLCreateSystemDefaultDevice() else {
             print("Metal is not supported on this device")
             return
         }
         print("My GPU is: \(defaultDevice)")
         mtkView.device = defaultDevice
+```
 
 3. Initialize the Renderer: Create an instance of a custom Renderer class that handles drawing. If initialization fails, print an error.
 
+```swift
         guard let tempRenderer = Renderer(mtkView: mtkView) else {
             print("Renderer failed to initialize")
             return
         }
         renderer = tempRenderer
+```
 
 4.	Set the Delegate: Finally, assign the renderer as the delegate of the mtkView so that it can handle rendering tasks.
 
+```swift
         mtkView.delegate = renderer
+```
 
 This code sets up a basic Metal rendering environment within a macOS application. By initializing the MTKView and creating a Renderer, you prepare your app to display graphics. The next steps would involve implementing the rendering logic in the Renderer class.
 
@@ -120,14 +134,17 @@ Now we will go through the Renderer class that handles drawing in a Metal applic
 
 At the top of your Swift file, ensure you import the required frameworks:
 
+```swift
     import Foundation
     import Metal
     import MetalKit
+```
 
 #### Step 2: Define the Renderer Class
 
 Create a class named Renderer that conforms to the MTKViewDelegate protocol. This allows the class to respond to rendering requests from the MTKView.
 
+```swift
     class Renderer: NSObject, MTKViewDelegate {
         let device: MTLDevice
         let commandQueue: MTLCommandQueue
@@ -136,6 +153,7 @@ Create a class named Renderer that conforms to the MTKViewDelegate protocol. Thi
             device = mtkView.device!
             commandQueue = device.makeCommandQueue()!
         }
+```
 
 * __MTLDevice__: Represents the GPU hardware.
 * __MTLCommandQueue__: A queue that manages the command buffers sent to the GPU.
@@ -144,6 +162,7 @@ Create a class named Renderer that conforms to the MTKViewDelegate protocol. Thi
 
 This method is called whenever the MTKView needs to render new content.
 
+```swift
     func draw(in view: MTKView) {
         guard let commandBuffer = commandQueue.makeCommandBuffer() else { return }
         guard let renderPassDescriptor = view.currentRenderPassDescriptor else { return }
@@ -159,6 +178,7 @@ This method is called whenever the MTKView needs to render new content.
         commandBuffer.present(view.currentDrawable!)
         commandBuffer.commit()
     }
+```
 
 * __Command Buffer__: Represents a set of commands to be executed by the GPU.
 * __Render Pass Descriptor__: Defines the framebuffer for rendering.
@@ -168,9 +188,11 @@ This method is called whenever the MTKView needs to render new content.
 
 Implement the mtkView(_:drawableSizeWillChange:) method to handle changes in the view’s size (like window resizing). This method can be left empty for now:
 
+```swift
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         // Handle size changes if needed
     }
+```
 
 This Renderer class sets up the necessary components for rendering with Metal. In the draw(in:) method, you can add specific drawing commands to create graphics on the screen. In the next steps, you can enhance the rendering logic by adding shapes or 3D models.
 
@@ -186,27 +208,34 @@ In this section, we’ll create vertex and fragment shaders using the Metal Shad
 1. Create Bridging Header: When prompted, click “Create Bridging Header.” You can delete the Objective-C file afterward.
 1. Create a C Header File: Add a new “Header File” and name it ShaderDefinitions.h.
 1. Modify Bridging Header: Add the following line to your bridging header:
-        
+
+```c        
         #include "ShaderDefinitions.h"
+```
 
 #### Step 2: Define Vertex Structure
 
 1.	Include SIMD Library: In ShaderDefinitions.h, add:
-        
+
+```c        
         #include <simd/simd.h>
+```
 
 2.	Define the Vertex Structure: Add the following struct definition to ShaderDefinitions.h:
 
+```c
         struct Vertex {
             vector_float4 color; // RGBA
             vector_float2 pos;   // 2D position
         };
+```
 
 #### Step 3: Create Metal Shaders
 
 1.	Create a Metal File: In Xcode, create a new “Metal file” named Shaders.metal.
 2.	Add Shader Functions: Inside Shaders.metal, define the vertex and fragment shaders:
 
+```c
         vertex void vertexShader()
         {
             // Vertex shader implementation
@@ -216,6 +245,7 @@ In this section, we’ll create vertex and fragment shaders using the Metal Shad
         {
             // Fragment shader implementation
         }
+```
 
 #### Next Steps
 
@@ -230,52 +260,66 @@ To utilize your shaders, you need to create a custom rendering pipeline in your 
 
 Add the following function stub to the Renderer class:
 
+```c
     class func buildRenderPipelineWith(device: MTLDevice, metalKitView: MTKView) throws -> MTLRenderPipelineState {
         // ...
     }
+```
 
 #### Step 2: Create the Pipeline Descriptor
 
 Inside the buildRenderPipelineWith function, construct a MTLRenderPipelineDescriptor:
 
+```swift
     let pipelineDescriptor = MTLRenderPipelineDescriptor()
+```
 
 #### Step 3: Configure the Shaders
 
 Load the vertex and fragment shaders from Shaders.metal using the default library:
 
+```swift
     let library = device.makeDefaultLibrary()
     pipelineDescriptor.vertexFunction = library?.makeFunction(name: "vertexShader")
     pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "fragmentShader")
+```
 
 #### Step 4: Set the Output Pixel Format
 
 Ensure the pixel format matches the MTKView:
 
+```swift
     pipelineDescriptor.colorAttachments[0].pixelFormat = metalKitView.colorPixelFormat
+```
 
 #### Step 5: Compile the Pipeline
 
 Compile the pipeline descriptor into a state object and handle potential errors:
 
+```swift
     return try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
+```
 
 #### Step 6: Save the Pipeline State
 
 Add an instance variable to store the pipeline state in the Renderer class:
 
+```swift
     let pipelineState: MTLRenderPipelineState
+```
 
 #### Step 7: Initialize the Pipeline State
 
 In the Renderer initializer, create the render pipeline:
 
+```swift
     do {
         pipelineState = try Renderer.buildRenderPipelineWith(device: device, metalKitView: mtkView)
     } catch {
         print("Unable to compile render pipeline state: \(error)")
         return nil
     }
+```
 
 This setup allows your Metal application to efficiently render graphics by configuring a pipeline that uses the defined shaders and matches the output format of your MetalKit view.
 
@@ -288,21 +332,27 @@ To render a triangle in Metal, you need to prepare vertex data and send it to th
 
 In the Renderer initializer, create an array of vertices with their corresponding colors:
 
+```swift
     let vertices = [
         Vertex(color: [1, 0, 0, 1], pos: [-1, -1]),  // Red vertex
         Vertex(color: [0, 1, 0, 1], pos: [0, 1]),   // Green vertex
         Vertex(color: [0, 0, 1, 1], pos: [1, -1])    // Blue vertex
     ]
+```
 
 #### Step 2: Create a Vertex Buffer
 
 Add an instance variable for the vertex buffer:
 
+```swift
     let vertexBuffer: MTLBuffer
+```
 
 Then, allocate the buffer in the initializer:
 
+```swift
     vertexBuffer = device.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Vertex>.stride, options: [])!
+```
 
 This buffer allows the GPU to access the vertex data.
 
@@ -310,13 +360,17 @@ This buffer allows the GPU to access the vertex data.
 
 In the draw(in view: MTKView) function, after creating the renderEncoder, set the pipeline and vertex buffer:
 
+```swift
     // Setup render commands to encode
     renderEncoder.setRenderPipelineState(pipelineState)
     renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+```
 
 Then, encode the drawing command:
 
+```swift
     renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
+```
 
 This tells Metal to draw a triangle using the specified vertices.
 
@@ -331,9 +385,11 @@ The vertex and fragment shaders are crucial components for rendering in Metal. H
 
 The vertex shader processes vertex data and requires the following parameters:
 
+```c
     vertex VertexOut vertexShader(const device Vertex *vertexArray [[buffer(0)]], unsigned int vid [[vertex_id]]) {
         // TODO: Write vertex shader
     }
+```
 
 Parameters:
 * vertexArray: Pointer to the vertex data.
@@ -343,9 +399,11 @@ Parameters:
 
 The fragment shader outputs the final pixel color and is defined as follows:
 
+```c
     fragment float4 fragmentShader(VertexOut interpolated [[stage_in]]) {
         // TODO: Write fragment shader
     }
+```
 
 Parameters:
 * interpolated: Receives interpolated data from the vertex shader.
@@ -354,10 +412,12 @@ Parameters:
 
 Define an output structure for the vertex shader:
 
+```c
     struct VertexOut {
         float4 color;
         float4 pos [[position]];
     };
+```
 
 Fields:
 * `color`: Color of the vertex.
@@ -374,10 +434,13 @@ Vertex Shader Implementation:
 
 1.	Fetch the vertex data using the vertex ID:
 
+```c
         Vertex in = vertexArray[vid];
+```
 
 2.	Create an instance of VertexOut and set its properties:
 
+```c
         VertexOut out;
 
         // Pass the vertex color directly to the rasterizer
@@ -387,6 +450,7 @@ Vertex Shader Implementation:
         out.pos = float4(in.pos.x, in.pos.y, 0, 1);
 
         return out;
+```
 
 This shader is often referred to as a pass-through vertex shader because it mainly transfers data without significant modification.
 
@@ -394,6 +458,8 @@ This shader is often referred to as a pass-through vertex shader because it main
 
 The fragment shader is straightforward as it simply returns the interpolated color:
 
+```c
     return interpolated.color;
+```
 
 After implementing these shaders, compile and run your code to see the rendered output.
