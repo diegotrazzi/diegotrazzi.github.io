@@ -6,9 +6,9 @@ categories: [Metal]
 tags: [Metal, MetalKit, Computer Graphics, 3D, Rendering, GPU, Apple, MacOS]
 ---
 
-![Hello Triangle Animated](../../assets/Metal/2024-10-26-hello-triangle/img/triangle.gif)
+![Hello Triangle Animated](/assets/Metal/2024-10-26-hello-triangle/img/triangle.gif)
 
-The __XCode project__ can be download [here](../../assets/RainbowTriangle.zip) and contains detailed comments for all steps.
+The __XCode project__ can be download [here](/assets/RainbowTriangle.zip) and contains detailed comments for all steps.
 
 
 ### What is metal?
@@ -36,7 +36,7 @@ The stages of the Metal pipeline are summarized in the following list. Note that
 4. Rasterization: Converts 2D geometric data into discrete pixels and interpolates vertex data across each pixel.
 5. Fragment Shader: Uses interpolated pixel data from the rasterizer to determine each pixel’s final color.
 
-![alt text](../../assets/Metal/2024-10-26-hello-triangle/img/metal-render-pipline.png)
+![alt text](/assets/Metal/2024-10-26-hello-triangle/img/metal-render-pipline.png)
 
 ---
 
@@ -45,7 +45,7 @@ The stages of the Metal pipeline are summarized in the following list. Note that
 This article is loosely based on [Donald Pinckney Post](https://donaldpinckney.com/metal/2018/07/05/metal-intro-1.html).
 In this project we start from a UIKit Storyboard, then add an MKTView to display the Metal content.
 
-![Hello Triangle Animated](../../assets/Metal/2024-10-26-hello-triangle/img/UiKitMetalApp.png)
+![Hello Triangle Animated](/assets/Metal/2024-10-26-hello-triangle/img/UiKitMetalApp.png)
 
 To create a basic one-window macOS app for Metal in Xcode:
 
