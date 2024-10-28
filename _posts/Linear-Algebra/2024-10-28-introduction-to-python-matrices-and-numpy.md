@@ -109,7 +109,7 @@ print(rand_arr)
 
 ### Multidimensional Arrays
 
-<img src="../../assets/Math/2024-10-28-introduction-to-python-matrices-and-numpy/multidimensionalArray.png" width="400"/>
+<img src="/assets/Math/2024-10-28-introduction-to-python-matrices-and-numpy/img/multidimensionalArray.png" width="400"/>
 
 With NumPy you can also create arrays with more than one dimension. A multidimensional array has more than one column. Think of a multidimensional array as an excel sheet where each row/column represents a dimension.
 
@@ -186,7 +186,7 @@ This concept is called **broadcasting**, which allows you to perform operations 
 vector = np.array([1, 2])
 vector * 1.6
 ```
-<img src="../../assets/Math/2024-10-28-introduction-to-python-matrices-and-numpy/broadcasting.png" width="600"/>
+<img src="/assets/Math/2024-10-28-introduction-to-python-matrices-and-numpy/img/broadcasting.png" width="600"/>
 
 ___
 ## Indexing and slicing
