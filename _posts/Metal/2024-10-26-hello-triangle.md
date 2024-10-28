@@ -8,7 +8,7 @@ tags: [Metal, MetalKit, Computer Graphics, 3D, Rendering, GPU, Apple, MacOS]
 
 ![Hello Triangle Animated](/assets/Metal/2024-10-26-hello-triangle/img/triangle.gif)
 
-The __XCode project__ can be download [here](/assets/RainbowTriangle.zip) and contains detailed comments for all steps.
+The __XCode project__ can be download [here](/assets/Metal/2024-10-26-hello-triangle/RainbowTriangle.zip) and contains detailed comments for all steps.
 
 
 ### What is metal?
