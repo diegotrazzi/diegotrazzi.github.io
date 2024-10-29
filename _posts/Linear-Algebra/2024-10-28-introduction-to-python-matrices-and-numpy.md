@@ -109,7 +109,7 @@ print(rand_arr)
 
 ### Multidimensional Arrays
 
-<img src="/assets/Math/2024-10-28-introduction-to-python-matrices-and-numpy/img/multidimensionalArray.png" width="400"/>
+![linear-dipendence](/assets/Math/2024-10-28-introduction-to-python-matrices-and-numpy/img/multidimensionalArray.png){: width="400"}
 
 With NumPy you can also create arrays with more than one dimension. A multidimensional array has more than one column. Think of a multidimensional array as an excel sheet where each row/column represents a dimension.
 
