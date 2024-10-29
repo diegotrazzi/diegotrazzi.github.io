@@ -186,7 +186,8 @@ This concept is called **broadcasting**, which allows you to perform operations 
 vector = np.array([1, 2])
 vector * 1.6
 ```
-<img src="/assets/Math/2024-10-28-introduction-to-python-matrices-and-numpy/img/broadcasting.png" width="600"/>
+
+![linear-dipendence](/assets/Math/2024-10-28-introduction-to-python-matrices-and-numpy/img/broadcasting.png){: width="400"}
 
 ___
 ## Indexing and slicing
@@ -308,4 +309,4 @@ print(vert_split_four)
 # Split the vertically stacked array after the first and third row
 vert_split_first_third = np.vsplit(vert_stack,[1,3])
 print(vert_split_first_third)
-```
+```$$
