@@ -153,7 +153,6 @@ plot_lines(A_system)
 
 Notice how the lines intersect at $(x_1,x_2) = (-1, 2)$, the solution to the system of equations.
 
-<a name='3'></a>
 ## 3 - System of Linear Equations with No Solutions
 
 Given another system of linear equations:
