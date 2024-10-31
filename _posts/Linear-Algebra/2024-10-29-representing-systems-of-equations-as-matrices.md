@@ -4,6 +4,7 @@ title: Representing Systems of Equations as Matrices
 date: 2024-10-29 16:20 -0700
 categories: [Math]
 tags: [Linear Algebra, Systems of Linear Equation, Determinant, Ai, Machine Learning, Math, Matrices]
+author: Diego Trazzi
 ---
 
 ## Representing System of Linear Equations using Matrices

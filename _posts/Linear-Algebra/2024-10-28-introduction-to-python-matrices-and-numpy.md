@@ -4,6 +4,7 @@ title: Introduction to Python Matrices and NumPy
 date: 2024-10-28 15:43 -0700
 categories: [Math]
 tags: [Linear Algebra, Systems of Linear Equation, Determinant, Ai, Machine Learning, Math, Matrices]
+author: Diego Trazzi
 ---
 
 Official [NumPy documentaion here](https://numpy.org/doc/stable/index.html). 
