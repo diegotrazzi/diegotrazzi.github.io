@@ -4,6 +4,7 @@ title: Systems of Linear Equation
 date: 2024-10-27 15:21 -0700
 categories: [Math]
 tags: [Linear Algebra, Systems of Linear Equation, Determinant, Ai, Machine Learning, Math, Matrices]
+author: Diego Trazzi
 ---
 
 # Systems of Linear Equation
