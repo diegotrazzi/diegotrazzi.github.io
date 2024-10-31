@@ -9,11 +9,9 @@ author: Diego Trazzi
 
 ## Representing System of Linear Equations using Matrices
 
-<a name='1.1'></a>
 ### 1.1 - System of Linear Equations
 
 A **system of linear equations** (or **linear system**) is a collection of one or more linear equations involving the same variables. For example:
-
 
 $$
 \begin{cases} 
@@ -24,7 +22,6 @@ is a system of two equations with two unknown variables $x_1$ and $x_2$. **To so
 
 A linear system is **singular** if it has no unique solution, and otherwise, it is said to be **non-singular**.
 
-<a name='1.2'></a>
 ### 1.2 - System of Linear Equations as Matrices
 In the lecture, you saw that we represented linear systems of equations as matrices. The system $(1)$ represented as a matrix is as follows:
 
@@ -57,7 +54,6 @@ $$
 
 We show the matrix $A$ and vector $b$ in `NumPy` below:
 
-
 ```python
 A = np.array([
         [-1, 3],
@@ -76,7 +72,6 @@ What are the dimensions of matrix $A$ and vector $b$?
 
 You can confirm the dimensions of $A$ and $b$ using the `shape` attribute (you can also use `np.shape()` as an alternative).
 
-
 ```python
 print(f"Shape of A: {A.shape}")
 print(f"Shape of b: {b.shape}")
@@ -91,7 +86,6 @@ The `NumPy` linear algebra package provides a quick and reliable way to solve sy
 
 To find the solution of the system $(1)$, we will simply use the `np.linalg.solve(A, b)` function. The result will be saved in the 1-D array $x$, where the elements correspond to the values of $x_1$ and $x_2$:
 
-
 ```python
 x = np.linalg.solve(A, b)
 
@@ -100,7 +94,6 @@ print(f"Solution: {x}")
 
 The first column in this output is the solution to the variable $x_1$, and the second column is the solution to the variable $x_2$. Confirm that the solution is correct by substituting these values of $x_1$ and $x_2$ into the original system of equations.
 
-<a name='1.3'></a>
 ### 1.3 - Evaluating Determinant of a Matrix
 
 The matrix $A$ corresponding to the linear system $(1)$ is a **square matrix** - it has the same number of rows and columns. In the case of a square matrix, it is possible to calculate its determinant - a real number which characterizes some properties of the matrix. A linear system containing two (or more) equations with the same number of unknown variables will have one solution if and only if matrix $A$ has a non-zero determinant.
@@ -118,12 +111,10 @@ print(f"Determinant of matrix A: {d:.2f}")
 
 Note that its value is non-zero, as expected for a system with exactly one solution.
 
-<a name='2'></a>
 ## 2 - Visualizing 2x2 Systems as Plotlines
 
 You can see how easy it is to use contemporary packages to solve linear equations and calculate useful properties of matrices like the determinant. In this section, we will visualize a 2x2 system as plot lines, as you saw in the ungraded plugin.
 
-<a name='2.1'></a>
 ### 2.1 - Representation of the system as a matrix
 
 Before you visualize the system $(1)$, you would want to represent the system in a matrix with the form:
@@ -136,7 +127,6 @@ $$
 $$
 
 To do this, you can either create a new matrix with these values or horizontally stack the $A$ and $b$ matrices you created earlier. Note that the `np.hstack()` function will require you to reshape array $b$ before it is stacked, as its current shape is $(2,)$. The code below includes the `.reshape((2, 1))` command to allow the horizontal stack to be completed.
-
 
 ```python
 A_system = np.hstack((A, b.reshape((2, 1))))
@@ -151,13 +141,11 @@ Let's review how to extract a row of a matrix, which will help later in performi
 print(A_system[1])
 ```
 
-<a name='2.2'></a>
 ### 2.2 - Graphical Representation of the Solution
 
 A linear equation in two variables (here, $x_1$ and $x_2$) can be represented geometrically by a line in the plane. This is called the **graph of the linear equation**. In the case of the system of two equations, there will be two lines corresponding to each of the equations, and the solution will be the intersection point of those lines.
 
 In the following code, you will define a function `plot_lines()` to plot the lines and use it later to represent the solution which you found earlier. Do not worry if the code in the following cell is not clear - at this stage, it is not important to understand.
-
 
 ```python
 plot_lines(A_system)
@@ -203,12 +191,10 @@ except np.linalg.LinAlgError as err:
 
 Construct the matrix corresponding to this linear system:
 
-
 ```python
 A_2_system = np.hstack((A_2, b_2.reshape((2, 1))))
 print(A_2_system)
 ```
-
 
 ```python
 plot_lines(A_2_system)
@@ -216,7 +202,6 @@ plot_lines(A_2_system)
 
 As expected, the lines of the two equations are parallel.
 
-<a name='4'></a>
 ## 4 - System of Linear Equations with an Infinite Number of Solutions
 
 By changing the free coefficients of the system $(2)$, you can bring it to consistency:
@@ -226,13 +211,11 @@ $$
 -x_1+3x_2=7, \\ 3x_1-9x_2=-21, \end{cases}\tag{3}
 $$
 
-
 ```python
 b_3 = np.array([7, -21], dtype=np.dtype(float))
 ```
 
 Prepare the new matrix, corresponding to the system $(3)$:
-
 
 ```python
 A_3_system = np.hstack((A_2, b_3.reshape((2, 1))))
@@ -255,7 +238,6 @@ $$
 where $x_2$ is any real number.
 
 If you plot the equations of the system, how many lines do you expect to see in the graph now? Check it using the code below:
-
 
 ```python
 plot_lines(A_3_system)
