@@ -12,6 +12,9 @@ tags: [Metal, MetalKit, Computer Graphics, 3D, Rendering, GPU, Apple, MacOS]
 
 When creating fully immersive content with Metal, [Compositor Services](https://developer.apple.com/documentation/compositorservices) acts as a bridge between your SwiftUI code and your Metal rendering engine. This framework enables you to present an immersive scene that supports Metal rendering. When your app displays the scene, __Compositor Services provides a layer containing the Metal types, textures, and necessary information__. It also offers timing data to help you manage the rendering loop efficiently and deliver frames promptly.
 
+> To specify an immersive scene to open directly on App Launch, you must set the [UIApplicationPreferredDefaultSceneSessionRole](https://developer.apple.com/documentation/bundleresources/information_property_list/uiapplicationpreferreddefaultscenesessionrole) to `CPSceneSessionRoleImmersiveSpaceApplication` in `Info.plist` of your App
+{: .prompt-tip}
+
 ### Set up an ImmersiveSpace Scene
 ![Desktop View](/assets/Metal/2024-11-02-metal-on-visionos/img/AppArchitecture.png){: .default width="600"}
 
@@ -41,7 +44,10 @@ In the previous example we don't provide a custom configuration because Composit
 > If your Metal rendering engine requires specific texture layouts, pixel formats, or rendering options, specify those details when you configure your with [CompositorLayerConfiguration](https://developer.apple.com/documentation/compositorservices/compositorlayerconfiguration). 
 {: .prompt-tip }
 
-Configuration options that are available on a device might not be available in Simulator, so use the capabilities parameter to validate your choices before making them. The following example changes the pixel format to one that supports HDR values, and configures the texture layout based on the current foveation setting:
+![Desktop View](/assets/Metal/2024-11-02-metal-on-visionos/img/CompositorLayerConfiguration.png
+){: .default width="600"}
+
+Configuration options that are available on a device might not be available in Simulator, so use the `LayerRender Capabilities` to validate the App choices before setting them. The following example configures the texture layout based on the current foveation capabilities setting and changes the pixel format to one that supports HDR values:
 
 ```swift
 struct ContentStageConfiguration: CompositorLayerConfiguration {
@@ -59,3 +65,6 @@ struct ContentStageConfiguration: CompositorLayerConfiguration {
     }
 }
 ```
+
+> 
+{: .prompt-warning}

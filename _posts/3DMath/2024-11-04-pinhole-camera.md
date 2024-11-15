@@ -459,3 +459,8 @@ bottom = -top;
 ## References
 
 * [The Pinhole Camera Model](https://www.scratchapixel.com/lessons/3d-basic-rendering/3d-viewing-pinhole-camera/how-pinhole-camera-works-part-1.html)
+* [Dissecting the Camera Matrix](https://ksimek.github.io/2012/08/14/decompose/)
+* [Convert world to screen coordinates and vice versa in WebGL](https://olegvaraksin.medium.com/convert-world-to-screen-coordinates-and-vice-versa-in-webgl-c1d3f2868086)
+* [OpenGL Transformation](http://www.songho.ca/opengl/gl_transform.html)
+* [From OpenGL to Metal – The Projection Matrix Problem](https://metashapes.com/blog/opengl-metal-projection-matrix-problem/)
+

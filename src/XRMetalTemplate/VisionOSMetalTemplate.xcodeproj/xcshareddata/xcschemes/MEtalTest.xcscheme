@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C64156B62CD7191600554BCE"
-               BuildableName = "MEtalTest.app"
-               BlueprintName = "MEtalTest"
-               ReferencedContainer = "container:MEtalTest.xcodeproj">
+               BuildableName = "VisionOSMetalTemplate.app"
+               BlueprintName = "VisionOSMetalTemplate"
+               ReferencedContainer = "container:VisionOSMetalTemplate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C64156B62CD7191600554BCE"
-            BuildableName = "MEtalTest.app"
-            BlueprintName = "MEtalTest"
-            ReferencedContainer = "container:MEtalTest.xcodeproj">
+            BuildableName = "VisionOSMetalTemplate.app"
+            BlueprintName = "VisionOSMetalTemplate"
+            ReferencedContainer = "container:VisionOSMetalTemplate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C64156B62CD7191600554BCE"
-            BuildableName = "MEtalTest.app"
-            BlueprintName = "MEtalTest"
-            ReferencedContainer = "container:MEtalTest.xcodeproj">
+            BuildableName = "VisionOSMetalTemplate.app"
+            BlueprintName = "VisionOSMetalTemplate"
+            ReferencedContainer = "container:VisionOSMetalTemplate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

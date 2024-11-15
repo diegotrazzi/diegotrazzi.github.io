@@ -6,135 +6,106 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		C64156BD2CD7191600554BCE /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = C64156BC2CD7191600554BCE /* RealityKitContent */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		C64156B72CD7191600554BCE /* MEtalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEtalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C64156BB2CD7191600554BCE /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		C6F79AD32CE17C9E00F58A60 /* MetalPipeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalPipeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C64156D12CD7191800554BCE /* Exceptions for "MEtalTest" folder in "MEtalTest" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = C64156B62CD7191600554BCE /* MEtalTest */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C64156B92CD7191600554BCE /* MEtalTest */ = {
+		C6F79AD52CE17C9E00F58A60 /* MetalPipeline */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C64156D12CD7191800554BCE /* Exceptions for "MEtalTest" folder in "MEtalTest" target */,
-			);
-			path = MEtalTest;
+			path = MetalPipeline;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C64156B42CD7191600554BCE /* Frameworks */ = {
+		C6F79AD02CE17C9E00F58A60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C64156BD2CD7191600554BCE /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C64156AE2CD7191600554BCE = {
+		C6F79ACA2CE17C9E00F58A60 = {
 			isa = PBXGroup;
 			children = (
-				C64156B92CD7191600554BCE /* MEtalTest */,
-				C64156BA2CD7191600554BCE /* Packages */,
-				C64156B82CD7191600554BCE /* Products */,
+				C6F79AD52CE17C9E00F58A60 /* MetalPipeline */,
+				C6F79AD42CE17C9E00F58A60 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C64156B82CD7191600554BCE /* Products */ = {
+		C6F79AD42CE17C9E00F58A60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C64156B72CD7191600554BCE /* MEtalTest.app */,
+				C6F79AD32CE17C9E00F58A60 /* MetalPipeline.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C64156BA2CD7191600554BCE /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				C64156BB2CD7191600554BCE /* RealityKitContent */,
-			);
-			path = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C64156B62CD7191600554BCE /* MEtalTest */ = {
+		C6F79AD22CE17C9E00F58A60 /* MetalPipeline */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C64156D22CD7191800554BCE /* Build configuration list for PBXNativeTarget "MEtalTest" */;
+			buildConfigurationList = C6F79AE22CE17CA000F58A60 /* Build configuration list for PBXNativeTarget "MetalPipeline" */;
 			buildPhases = (
-				C64156B32CD7191600554BCE /* Sources */,
-				C64156B42CD7191600554BCE /* Frameworks */,
-				C64156B52CD7191600554BCE /* Resources */,
+				C6F79ACF2CE17C9E00F58A60 /* Sources */,
+				C6F79AD02CE17C9E00F58A60 /* Frameworks */,
+				C6F79AD12CE17C9E00F58A60 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C64156B92CD7191600554BCE /* MEtalTest */,
+				C6F79AD52CE17C9E00F58A60 /* MetalPipeline */,
 			);
-			name = MEtalTest;
+			name = MetalPipeline;
 			packageProductDependencies = (
-				C64156BC2CD7191600554BCE /* RealityKitContent */,
 			);
-			productName = MEtalTest;
-			productReference = C64156B72CD7191600554BCE /* MEtalTest.app */;
+			productName = MetalPipeline;
+			productReference = C6F79AD32CE17C9E00F58A60 /* MetalPipeline.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C64156AF2CD7191600554BCE /* Project object */ = {
+		C6F79ACB2CE17C9E00F58A60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					C64156B62CD7191600554BCE = {
+					C6F79AD22CE17C9E00F58A60 = {
 						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
-			buildConfigurationList = C64156B22CD7191600554BCE /* Build configuration list for PBXProject "MEtalTest" */;
+			buildConfigurationList = C6F79ACE2CE17C9E00F58A60 /* Build configuration list for PBXProject "MetalPipeline" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = C64156AE2CD7191600554BCE;
+			mainGroup = C6F79ACA2CE17C9E00F58A60;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = C64156B82CD7191600554BCE /* Products */;
+			productRefGroup = C6F79AD42CE17C9E00F58A60 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C64156B62CD7191600554BCE /* MEtalTest */,
+				C6F79AD22CE17C9E00F58A60 /* MetalPipeline */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C64156B52CD7191600554BCE /* Resources */ = {
+		C6F79AD12CE17C9E00F58A60 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -144,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C64156B32CD7191600554BCE /* Sources */ = {
+		C6F79ACF2CE17C9E00F58A60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -154,61 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C64156D32CD7191800554BCE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MEtalTest/Preview Content\"";
-				DEVELOPMENT_TEAM = YRHZWWWS54;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.d1ng0.rainbowTriangle.MEtalTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(TARGET_NAME)/ShaderTypes.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 7;
-			};
-			name = Debug;
-		};
-		C64156D42CD7191800554BCE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MEtalTest/Preview Content\"";
-				DEVELOPMENT_TEAM = YRHZWWWS54;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.d1ng0.rainbowTriangle.MEtalTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(TARGET_NAME)/ShaderTypes.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 7;
-			};
-			name = Release;
-		};
-		C64156D52CD7191800554BCE /* Debug */ = {
+		C6F79AE02CE17CA000F58A60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,14 +181,12 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = xros;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Debug;
 		};
-		C64156D62CD7191800554BCE /* Release */ = {
+		C6F79AE12CE17CA000F58A60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -320,42 +235,110 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = xros;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
-				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
+		C6F79AE32CE17CA000F58A60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MetalPipeline/MetalPipeline.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MetalPipeline/Preview Content\"";
+				DEVELOPMENT_TEAM = YRHZWWWS54;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 19.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.d1ng0.pipeline.MetalPipeline;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		C6F79AE42CE17CA000F58A60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MetalPipeline/MetalPipeline.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MetalPipeline/Preview Content\"";
+				DEVELOPMENT_TEAM = YRHZWWWS54;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 19.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.d1ng0.pipeline.MetalPipeline;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C64156B22CD7191600554BCE /* Build configuration list for PBXProject "MEtalTest" */ = {
+		C6F79ACE2CE17C9E00F58A60 /* Build configuration list for PBXProject "MetalPipeline" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C64156D52CD7191800554BCE /* Debug */,
-				C64156D62CD7191800554BCE /* Release */,
+				C6F79AE02CE17CA000F58A60 /* Debug */,
+				C6F79AE12CE17CA000F58A60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C64156D22CD7191800554BCE /* Build configuration list for PBXNativeTarget "MEtalTest" */ = {
+		C6F79AE22CE17CA000F58A60 /* Build configuration list for PBXNativeTarget "MetalPipeline" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C64156D32CD7191800554BCE /* Debug */,
-				C64156D42CD7191800554BCE /* Release */,
+				C6F79AE32CE17CA000F58A60 /* Debug */,
+				C6F79AE42CE17CA000F58A60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C64156BC2CD7191600554BCE /* RealityKitContent */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = C64156AF2CD7191600554BCE /* Project object */;
+	rootObject = C6F79ACB2CE17C9E00F58A60 /* Project object */;
 }

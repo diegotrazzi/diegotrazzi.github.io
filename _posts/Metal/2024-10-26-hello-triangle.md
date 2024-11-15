@@ -24,6 +24,16 @@ Metal, Apple’s GPU programming API, offers improved performance over OpenGL, w
 * `MTLRenderCommandEncoder`: Prepares vertex data and drawing commands for the pipeline.
 * `MTLBuffer`: Represents a data block accessible by both the CPU and GPU. We use MTLBuffer to create vertex data on the CPU, which the GPU can then access in shader code.
 
+![command queue](/assets/Metal/2024-10-26-hello-triangle/img/command-queue-buffer-encoder.png){: .default width="600"}
+
+Each frame consists of commands that you send to the GPU [[MTLDevice](https://developer.apple.com/documentation/metal/mtldevice)]. You wrap up these commands in a render command encoder: either for rendering [[MTLRenderCommandEncoder](https://developer.apple.com/documentation/metal/mtlrendercommandencoder)] or to compute [[MTLComputeCommandEncoder](https://developer.apple.com/documentation/metal/mtlcomputecommandencoder)]. Command buffers [[MTLCommandBuffer](https://developer.apple.com/documentation/metal/mtlcommandbuffer)] organize these command encoders and a command queue [[MTLCommandQueue](https://developer.apple.com/documentation/metal/mtlcommandqueue)] organizes the command buffers.
+
+![command queue](/assets/Metal/2024-10-26-hello-triangle/img/command-encoder.png){: .default width="600"}
+
+__On each frame, you’ll create a command buffer__ and at least __one render command encoder__ that describes the render pass. The render command encoder is a lightweight object that sets the GPU’s pipeline state and tells the GPU which buffers to use during the render pass.
+
+
+
 ### Metal render-pipeline in a nutshell
 
 In a 3D graphics pipeline, vertex geometry is first generated on the CPU and then sent to the GPU, where it goes through a sequence of steps (or pipeline) that transform vertex data into a final rendered image. This process includes customizing what happens within the pipeline, essential to Metal programming. In this tutorial, the goal is to understand and implement a simple pipeline in Metal that renders a basic 2D triangle by breaking down these steps into manageable code components.
@@ -154,9 +164,6 @@ Create a class named Renderer that conforms to the MTKViewDelegate protocol. Thi
             commandQueue = device.makeCommandQueue()!
         }
 ```
-
-* __MTLDevice__: Represents the GPU hardware.
-* __MTLCommandQueue__: A queue that manages the command buffers sent to the GPU.
 
 #### Step 3: Implement the draw(in:) Method
 
