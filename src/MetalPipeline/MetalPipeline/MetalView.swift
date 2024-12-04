@@ -8,6 +8,7 @@ struct MetalView: View {
   var body: some View {
     MetalViewRepresentable(metalView: $metalView)
       .onAppear {
+        // Instantiate the Renderer on firt appear
         renderer = Renderer(metalView: metalView)
       }
   }

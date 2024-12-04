@@ -93,9 +93,10 @@ $$
 \end{bmatrix}
 $$
 
-2. __Rotation (Rotating)__: A rotation matrix around the X axis by an angle $\theta$ is:
+2. __Rotation (Rotating)__: A rotation matrix around the X,Y,Z axis by an angle $\theta$ is:
 
 $$
+X =
 \begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & \cos(\theta) & -\sin(\theta) & 0 \\
@@ -104,7 +105,25 @@ $$
 \end{bmatrix}
 $$
 
-(There are similar matrices for rotations around the Y and Z axes.)
+$$
+Y =
+\begin{bmatrix}
+\cos(\theta) & 0 & \sin(\theta) & 0 \\
+0 & 1 & 0 & 0 \\
+-\sin(\theta) & 0 & \cos(\theta) & 0 \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix}
+$$
+
+$$
+Z =
+\begin{bmatrix}
+\cos(\theta) & -\sin(\theta) & 0 & 0 \\
+\sin(\theta) & \cos(\theta) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix}
+$$
 
 3.	__Scaling (Resizing)__: A scaling matrix with factors $sx$, $sy$, and $sz$ along the X, Y, and Z axes is:
 
