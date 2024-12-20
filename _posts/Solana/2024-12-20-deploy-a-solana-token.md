@@ -6,12 +6,10 @@ tags: [Solana, crypto, cli]
 date: 2024-12-20 21:36 +1300
 ---
 
+![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .left width="300"}
+
 * This will become a table of contents (this text will be scrapped).
 {:toc}
-
-## Deploy a Solana token on the devnet - Final Result
-
-![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .left width="300"}
 
 ## Set Solana CLI to Use Testnet
 
