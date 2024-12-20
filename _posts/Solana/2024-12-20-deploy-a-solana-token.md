@@ -11,7 +11,9 @@ date: 2024-12-20 21:36 +1300
 
 ## Deploy a Solana token on the devnet
 
-![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .centered width="300"}
+![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .default width="300"}
+
+(Final Result)
 
 ## Set Solana CLI to Use Testnet
 
