@@ -8,7 +8,7 @@ date: 2024-12-20 21:36 +1300
 
 ## Deploy a Solana token on the devnet - Final Result
 
-![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .left width="300"}
+![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .default width="300"}
 
 * This will become a table of contents (this text will be scrapped).
 {:toc}
