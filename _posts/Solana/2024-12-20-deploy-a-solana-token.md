@@ -6,18 +6,20 @@ tags: [Solana, crypto, cli]
 date: 2024-12-20 21:36 +1300
 ---
 
-# Deploy a Solana token on the testnet
+# Deploy a Solana token on the devnet
 
 * This will become a table of contents (this text will be scrapped).
 {:toc}
 
-## Set the Solana CLI to Use Testnet
+## Set Solana CLI to Use Testnet
 
-> To ensure you’re interacting with the Solana testnet, run the following command
+After installing Solana cli discussed in the previous article, create a folder to store the new token details and set the solana config to devnet
+
+> To ensure you’re interacting with the Solana devnet, run the following command
 {: .prompt-tip}
 
 ```bash
-solana config set --url https://api.devnet.solana.com --keypair ~/my-devnet-wallet.json
+solana config set --url devnet
 ```
 
 ## Generate a New Wallet (if needed)
@@ -25,7 +27,7 @@ solana config set --url https://api.devnet.solana.com --keypair ~/my-devnet-wall
 If you don’t already have a wallet, create one using the Solana CLI:
 
 ```bash
-solana-keygen grind --starts-with com:1
+solana-keygen grind --starts-with cc:1
 ```
 
 Grind will search for an address that starts with the prefix ("com" in this case).
@@ -37,72 +39,153 @@ solana-keygen new --outfile ~/compute-coin--devnet-wallet.json
 
 This generates a new wallet and saves it to the specified file. You can also use an existing wallet.
 
-## Fund Your Wallet (Devnet)
-
-Set the solana configuration so that it know which wallet to use:
+Configure Solana CLI to use the keypair we just created 
 
 ```bash
 solana config set --keypair ~/path_to_your_wallet.json
 ```
 
-To deploy a token, you need some SOL to pay for transactions. You can request free SOL from the Solana devnet faucet:
+Double check the configuration is running correctly with:
 
 ```bash
-solana airdrop 2
+solana config get
 ```
 
-This will send 2 SOL to your wallet for use on the devnet.
+## Request Faucet Airdrop to fund the wallet (Devnet)
+
+For Solana devnet we use free SOL through the DevNet [Solana faucet](https://faucet.solana.com/).
+
+The CLI didn't seem to work for me, but alternately you can use: 
+
+```bash
+solana airdrop 5
+```
+
+This will send 5 SOL to your wallet for use on the devnet.
+
 You can check the wallet balance with:
 
 ```bash
 solana balance
 ```
 
-Alternatively use this website: [Solana faucet](https://faucet.solana.com/)
-
 ## Install the spl-token CLI
 
-Solana uses the spl-token CLI to manage token creation. To install it, run:
+Solana uses the spl-token CLI to manage token creation. If needed, install it by running:
 
 ```bash
 cargo install spl-token-cli
 ```
 
-## Create the Token
+## Create a Mint Address
 
-To create a new token, run the following command:
+Let's create one more address that we will use for our Mint Account - the factory that makes our specific token. We'll make it start with mnt to help us remember it's the token mint account.
 
 ```bash
-spl-token create-token
+solana-keygen grind --starts-with mnt:1
 ```
-```bash
-Creating token 6UcyYdRh1EC3Xzbufw7gSMvvKXQRnUjm6C72QdSx6M42 under program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
 
-Address:  6UcyYdRh1EC3Xzbufw7gSMvvKXQRnUjm6C72QdSx6M42
+## Create the token mint account
+
+Now, we will create the token mint, specifying to use the Token Extensions Program `TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb`, with the metadata extension enabled.
+
+```bash
+spl-token create-token --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb --enable-metadata mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k.json
+
+Creating token mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k under program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+To initialize metadata inside the mint, please run `spl-token initialize-metadata mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k <YOUR_TOKEN_NAME> <YOUR_TOKEN_SYMBOL> <YOUR_TOKEN_URI>`, and sign with the mint authority.
+
+Address:  mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k
 Decimals:  9
 
-Signature: 3mQMi7cjYHqKvy1RohBJwaMJu4qTnVWbPQq5tvEW2KrTGMx1S1WHwAnNJrRKqM7m25URGvPSgGUSXr21DaY5QRn3
+Signature: 3FQuaTBnFZQMv4v6kz9ZXNbTLXe9t8rBjEPbeQpBZsEqtVHLCnLS49BWshHzk9FydKCLNmYeVXc6k49dvPEoSkYN
 ```
 
-This will output a token address (e.g., Token Address: <your-token-address>), which uniquely identifies your token.
+> If desired, this is also the time to add additional token extensions to your token to have extra functionality, for example transfer fees.{: .prompt-warning}
+
+## Set Up Token Metadata (e.g., name, symbol)
+
+Next, we will create the offchain metadata for our token. This data is displayed on sites like Solana Explorer when people look at our token mint address.
+
+>The image should be square, and either 512x512 or 1024x1024 pixels, and less than 100kb if possible.
+{: .prompt-info}
+
+Metadata and media referenced inside (like the image ) must be saved somewhere publicly accessible online.
+
+For production tokens, a decentralized storage service like one of the following is considered more appropriate:
+
+* Akord - uploads to Arweave; free without sign up for 100Mb; uploads can take a while
+* Irys - formerly known as Bundlr, uploads to Arweave
+* Metaboss - by Metaplex
+* NFT Storage - used by many popular projects
+* Pinata - uploads to IPFS; free with sign up for 1Gb
+* ShadowDrive - a Solana native storage solution
+* web3.storage - requires signing up for a free plan - first 5Gb are free, easy to use
+
+>For a test token, a centralized storage solution like AWS S3, GCP, or GitHub (using the 'raw' URL format https://raw.githubusercontent.com/... ) is fine.{: .prompt-info}
+
+### Upload the image
+
+Upload your image file to your desired online storage solution and get the link. Ensure that the link directly opens your image file!
+
+```bash
+https://raw.githubusercontent.com/solana-developers/opos-asset/main/assets/CompressedCoil/image.png
+https://avatars.githubusercontent.com/u/144523105
+https://raw.githubusercontent.com/DangerDrome/DangerOS/fc4d13e57f73ae80edccb4f0f750be33b317193e/distro/rocky/media/brand/logo/rocky-logo.png
+```
+
+### Create and Upload the offchain metadata file
+
+Create a `metadata.json` file, add a name, symbol and description plus the image you just uploaded:
+
+```json
+{
+  "name": "Compute Coin",
+  "symbol": "COMP",
+  "description": "Compute Coin Devnet Token.",
+  "image": "https://raw.githubusercontent.com/DangerDrome/DangerOS/fc4d13e57f73ae80edccb4f0f750be33b317193e/distro/rocky/media/brand/logo/rocky-logo.png"
+}
+```
+Then upload the metadata.json to the storage provider of your choice (GitHub for Devnet).
+
+```
+https://raw.githubusercontent.com/diegotrazzi/diegotrazzi.github.io/refs/heads/main/assets/Solana/metadata.json
+```
+
+### Add the metadata to the token
+
+>This step only works for tokens using the Token Extensions program (TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb)
+{: .prompt-warning}
+
+Now we will initialize the metadata for our token with the metadata we just created and uploaded.
+
+```bash
+spl-token initialize-metadata mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k 'Compute Coin' 'COMP' https://raw.githubusercontent.com/diegotrazzi/diegotrazzi.github.io/refs/heads/main/assets/Solana/metadata.json
+```
+
+Congratulations, you created a token with metadata! Look at your token's mint address (starting with mnt) in Solana Explorer - making sure to to use devnet (if you are working on devnet).
 
 You can check the token details on [explorer.solan.com](https://explorer.solana.com/?cluster=devnet)
 
-## Create a Token Account
+`https://explorer.solana.com/address/mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k?cluster=devnet`
 
-Create an account to hold the token:
-
-```bash
-spl-token create-account <your-token-address>
-```
-
-```bash
-spl-token create-account 6UcyYdRh1EC3Xzbufw7gSMvvKXQRnUjm6C72QdSx6M42
-```
+![CC Token](/assets/Solana/ComputeToken.png){: .centered width="1000"}
 
 ## Mint Tokens
 
-To mint a certain amount of tokens to your newly created account, run:
+To mint a certain amount of tokens we need an account:
+
+```bash
+spl-token create-account mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k
+
+Creating account 4rawtUfJmygmeZAteL6JhQ7fDa19k8YSQKTTYZbbHSyg
+
+Signature: 2taEpJEhiHorywXMiXG4CxMmL2nzs59SAPHW7aEKVxWkkXdAx6Zg35r1XX7NFbbvov98N3qqo9fhwcFJKGQ5xfMm
+```
+
+This will create a new token account for the account that is currently set in the Solana config. You can also specify a different account by adding the address at the end of the command.
+
+And now we can finally mint some tokens into that token account:
 
 ```bash
 spl-token mint <your-token-address> <amount> <your-token-account-address>
@@ -111,62 +194,38 @@ spl-token mint <your-token-address> <amount> <your-token-account-address>
 For example, to mint 1B tokens:
 
 ```bash
-pl-token mint 6UcyYdRh1EC3Xzbufw7gSMvvKXQRnUjm6C72QdSx6M42 1000000000 CzBCZTAe9EKEcDknDtBjFw6dpGRUVv9DHEvwhjNqXQst                                            
-Minting 1000000000 tokens
-  Token: 6UcyYdRh1EC3Xzbufw7gSMvvKXQRnUjm6C72QdSx6M42
-  Recipient: CzBCZTAe9EKEcDknDtBjFw6dpGRUVv9DHEvwhjNqXQst
+spl-token mint mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k 1000000000
 
-Signature: 3UWKR6erR6kZ497CBHw48SNE8ERjppfAJrSCuGgA4kY4HczdG4iAftXTFpFV9DbMxxMckU7X8Y4VZYR2nkugAzwt
+Minting 1000000000 tokens
+  Token: mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k
+  Recipient: 4rawtUfJmygmeZAteL6JhQ7fDa19k8YSQKTTYZbbHSyg
+
+Signature: nbF5H95Pv4MHod49utdd6ajkw7wSf8XgcQ7zut9NRZ8CZP5G22ALeCQeaKnBZ2tdQbzx9LkTkUmimHGXKsDdfjD
 ```
 
-## Verify Token Creation
+### Verify Token Creation
 
 You can verify the token creation and balance by running:
 
 ```bash
 spl-token accounts
+
 Token                                         Balance   
 --------------------------------------------------------
-6UcyYdRh1EC3Xzbufw7gSMvvKXQRnUjm6C72QdSx6M42  1000000000
+mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k   1000000000
 ```
 
 This will show your token balances.
 
-## Optional: Set Up Token Metadata (e.g., name, symbol)
+### Send tokens to another account
 
-You may want to set up token metadata using the `metaplex` CLI. Follow the steps in the Metaplex documentation to set metadata like name, symbol, and logo.
-
-To set up and use Metaplex on macOS, you will need to install the Metaplex CLI and configure it properly to interact with the Solana blockchain for tasks like adding metadata to your tokens or creating NFTs. Below is the detailed guide to get started:
+Now you can also send the token to another owner of the tokens, for example:
 
 ```bash
-brew install node
+spl-token transfer mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k 500000000 (recipient wallet address) --fund-recipient
 ```
 
-Verify installation: 
-
-```bash
-node -v
-npm -v
-```
-
-Install  Metaplex:
-
-```bash
-npm install @solana/web3.js @metaplex-foundation/js
-```
-
-
-11. Check Token on Testnet
-
-Once the token is minted, you can interact with it like any other Solana token. You can also view your testnet tokens using a Solana wallet like Phantom or Sollet.
-
-Summary
-	1.	Install Solana CLI and set the URL to Testnet.
-	2.	Create a wallet and fund it with testnet SOL.
-	3.	Use spl-token to create a token and mint it.
-	4.	Verify the token and optionally add metadata.
-
-Your new token is now deployed on the Solana testnet!
+![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .centered width="500"}
 
 ### References:
 * [Install Solana Cli](https://solana.com/docs/intro/installation)
