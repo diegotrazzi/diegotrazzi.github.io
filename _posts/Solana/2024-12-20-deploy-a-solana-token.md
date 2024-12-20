@@ -6,7 +6,7 @@ tags: [Solana, crypto, cli]
 date: 2024-12-20 21:36 +1300
 ---
 
-# Deploy a Solana token on the devnet
+![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .centered width="300"}
 
 * This will become a table of contents (this text will be scrapped).
 {:toc}
@@ -224,8 +224,6 @@ Now you can also send the token to another owner of the tokens, for example:
 ```bash
 spl-token transfer mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k 500000000 (recipient wallet address) --fund-recipient
 ```
-
-![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .centered width="300"}
 
 ### References:
 * [Install Solana Cli](https://solana.com/docs/intro/installation)
