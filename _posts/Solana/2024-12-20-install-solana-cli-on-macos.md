@@ -28,15 +28,7 @@ brew --version
 Run the following command to install the Solana CLI:
 
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
-```
-
-## Step 3: Add Solana CLI to Path
-
-Add the Solana CLI binary path to your shell configuration file (e.g., .zshrc or .bash_profile):
-
-```bash
-export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+sh -c "$(curl -sSfL https://release.anza.xyz/stable/install)"
 ```
 
 Reload the shell configuration:
