@@ -225,7 +225,7 @@ Now you can also send the token to another owner of the tokens, for example:
 spl-token transfer mntvsoCFUAjDagq1BQirJpU1xL9GWJ94i3U17tv3k9k 500000000 (recipient wallet address) --fund-recipient
 ```
 
-![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .centered width="500"}
+![Phantom DevNet Balance](/assets/Solana/DevNetBalance.png){: .centered width="300"}
 
 ### References:
 * [Install Solana Cli](https://solana.com/docs/intro/installation)
