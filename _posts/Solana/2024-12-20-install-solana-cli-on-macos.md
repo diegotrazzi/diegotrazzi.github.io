@@ -67,4 +67,4 @@ solana-install update
 Now you’re ready to use the Solana CLI on your Mac!
 
 ### References:
-* https://solana.com/docs/intro/installation
+* [Install Solana Cli](https://solana.com/docs/intro/installation)
