@@ -16,4 +16,4 @@ bundle exec jekyll serve
 bundle exec jekyll post "Hello World"
 ```
 
-* Jekyll docs: `https://jekyllrb.com`
+* [Jekyll docs](https://jekyllrb.com)
