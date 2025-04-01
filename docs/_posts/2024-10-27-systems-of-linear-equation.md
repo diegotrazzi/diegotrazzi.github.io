@@ -16,9 +16,6 @@ author: Diego Trazzi
 ### Systems of Sentences
 When a system is __redundant__ or __contradictory__, it's called a __singular system__. And when a system is __complete__, it's called a __non-singular system__. In a nutshell, a non singular system is a system that carries as many pieces of information as sentences. So it's the most informative system can be, and a singular system is less informative than a non-singular one.
 
-This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+x)^2`$
-
-
 Example:
 $$
 \begin{cases} 
