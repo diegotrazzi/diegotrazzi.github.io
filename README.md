@@ -9,7 +9,7 @@ All written blog posts and other content files remain exclusively owned by Diego
 
 * Run your Jekyll site locally:
 ```shell
-bundle exec jekyll serve
+bundle exec jekyll serve --watch
 ```
 * Create a new post: 
 ```shell
