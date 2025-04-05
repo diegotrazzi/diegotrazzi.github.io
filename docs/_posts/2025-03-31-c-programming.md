@@ -9,17 +9,11 @@ author: Diego Trazzi
 
 # Data Structures and Algorithms Programming Specialization
 
-## Data Structures and Algorithms Specialization
-
-* [Data Structures and Algorithms Specialization - Courseera](https://www.coursera.org/programs/online-learning-for-apple/specializations/data-structures-algorithms)
-
----
-
-## C++ Programming Specialization
+Resources and links to reference study material.
 
 ### Codio - Programming in C++: A Hands-on Introduction Specialization: 4 course series - Coursera
 
-[Link](https://www.coursera.org/specializations/hands-on-cpp)
+[https://www.coursera.org/specializations/hands-on-cpp](https://www.coursera.org/specializations/hands-on-cpp)
 
 * C++ Basics: Selection and Iteration
 * C++ Basic Structures: Vectors, Pointers, Strings, and Files
