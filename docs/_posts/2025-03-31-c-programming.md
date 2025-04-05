@@ -7,33 +7,39 @@ tags: [Python, Self-driving, Ai, Machine Learning, Carla]
 author: Diego Trazzi
 ---
 
-# Data Structures and Algorithms Programming Specialization
+![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 
 Resources and links to reference study material.
 
-### Codio - Programming in C++: A Hands-on Introduction Specialization: 4 course series - Coursera
+### [Codio - Programming in C++: A Hands-on Introduction Specialization](https://www.coursera.org/specializations/hands-on-cpp)
 
-[https://www.coursera.org/specializations/hands-on-cpp](https://www.coursera.org/specializations/hands-on-cpp)
+![Coursera](https://img.shields.io/badge/Coursera-%230056D2.svg?style=for-the-badge&logo=Coursera&logoColor=white)
 
-* C++ Basics: Selection and Iteration
-* C++ Basic Structures: Vectors, Pointers, Strings, and Files
-* C++ Object Basics: Functions, Recursion, and Objects
-* Object-Oriented C++: Inheritance and Encapsulation
+Courses in this specialization: 
 
-### Codio - C++: Data Structures and Algorithms Specialization - Coursera
+* ✅ C++ Basics: Selection and Iteration.
+* C++ Basic Structures: Vectors, Pointers, Strings, and Files.
+* C++ Object Basics: Functions, Recursion, and Objects.
+* Object-Oriented C++: Inheritance and Encapsulation.
 
-[Link](https://www.coursera.org/specializations/codio-cpp-dsa)
+### [Codio - C++: Data Structures and Algorithms Specialization](https://www.coursera.org/specializations/codio-cpp-dsa)
 
-### UC Santa Cruz -  C, Go, and C++: A Comprehensive Introduction to Programming Specialization - Coursera
+![Coursera](https://img.shields.io/badge/Coursera-%230056D2.svg?style=for-the-badge&logo=Coursera&logoColor=white)
 
-[Link]](https://www.coursera.org/programs/online-learning-for-apple/specializations/c-go-c-plus-plus)
+### [UC Santa Cruz -  C, Go, and C++: A Comprehensive Introduction to Programming Specialization](https://www.coursera.org/programs/online-learning-for-apple/specializations/c-go-c-plus-plus)
+![Coursera](https://img.shields.io/badge/Coursera-%230056D2.svg?style=for-the-badge&logo=Coursera&logoColor=white)
 
+### [Illinois - Object-Oriented Data Structures in C++ - Coursera](https://www.coursera.org/programs/online-learning-for-apple/learn/cs-fundamentals-1)
 
-* [Illinois - Object-Oriented Data Structures in C++ - Coursera](https://www.coursera.org/programs/online-learning-for-apple/learn/cs-fundamentals-1)
+![Coursera](https://img.shields.io/badge/Coursera-%230056D2.svg?style=for-the-badge&logo=Coursera&logoColor=white)
 
-* [UC San Diego - Data Structures and Algorithms Specialization - Coursera](https://www.coursera.org/programs/online-learning-for-apple/specializations/data-structures-algorithms)
+### [UC San Diego - Data Structures and Algorithms Specialization - Coursera](https://www.coursera.org/programs/online-learning-for-apple/specializations/data-structures-algorithms)
 
-* [University of Colorado - C++ Programming for Unreal Game Development Specialization - Coursera](https://www.coursera.org/specializations/cplusplusunrealgamedevelopment)
+![Coursera](https://img.shields.io/badge/Coursera-%230056D2.svg?style=for-the-badge&logo=Coursera&logoColor=white)
+
+### [University of Colorado - C++ Programming for Unreal Game Development Specialization - Coursera](https://www.coursera.org/specializations/cplusplusunrealgamedevelopment)
+
+![Coursera](https://img.shields.io/badge/Coursera-%230056D2.svg?style=for-the-badge&logo=Coursera&logoColor=white)
 
 ### Books
 
