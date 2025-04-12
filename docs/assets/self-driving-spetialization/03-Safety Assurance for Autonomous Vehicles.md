@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Self Driving
+title: Self Driving -03- Safety Assurance for Autonomous Vehicles
 date: 2025-03-31 17:49 -0700
 categories: [Self-driving]
 tags: [Python, Self-driving, Ai, Machine Learning, Carla]

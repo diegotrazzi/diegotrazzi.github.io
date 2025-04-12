@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Self Driving
-date: 2025-03-31 17:49 -0700
+title: Self Driving -04- Vehicle Longitudinal Control
+date: 2025-04-07 17:49 -0700
 categories: [Self-driving]
 tags: [Python, Self-driving, Ai, Machine Learning, Carla]
 author: Diego Trazzi

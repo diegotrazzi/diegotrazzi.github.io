@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Self Driving
-date: 2025-03-31 17:49 -0700
+title: Self Driving -05- Vehicle Dynamic Modeling
+date: 2025-04-12 11:49 -0700
 categories: [Self-driving]
 tags: [Python, Self-driving, Ai, Machine Learning, Carla]
 author: Diego Trazzi
@@ -24,8 +24,10 @@ Longitudinal control ensures the car maintains the desired speed by adjusting th
 ##### **2. PID Controller**
 
 <div style="text-align: center;">
-  <img src="data/Module 05 - Vehicle Dynamic Modeling/PID-BASICS.png" height="250">
+  <img src="data/Module05-VehicleDynamicModeling/PID-BASICS.png" height="250">
 </div>
+
+![alt text](data/Module05-VehicleDynamicModeling/PID-BASICS.png)
 
 The PID (Proportional-Integral-Derivative) controller is a fundamental tool for error correction in longitudinal control:
 - **Proportional (P):** Reacts directly to the current error, speeding up response but may overshoot.
@@ -33,7 +35,7 @@ The PID (Proportional-Integral-Derivative) controller is a fundamental tool for 
 - **Derivative (D):** Predicts future errors to stabilize the system and reduce overshoot.
 
 <div style="text-align: center;">
-  <img src="data/Module 05 - Vehicle Dynamic Modeling/pid.png" height="150">
+  <img src="data/Module 05- Vehicle Dynamic Modeling/pid.png" height="150">
 </div>
 
 The PID controller combines these three terms to balance quick response, stability, and accuracy. Gains ($K_p$, $K_i$, $K_d$) must be tuned carefully for optimal performance.
@@ -82,7 +84,7 @@ By understanding these principles, you can design a PID controller to regulate v
 ##### **1. Vehicle Control Architecture**
 
 <div style="text-align: center;">
-  <img src="data/Module 05 - Vehicle Dynamic Modeling/vehicle-control-architecture.png" height="300">
+  <img src="data/Module 05- Vehicle Dynamic Modeling/vehicle-control-architecture.png" height="300">
 </div>
 
 The control architecture is divided into four sections:
@@ -112,7 +114,7 @@ The control architecture is divided into four sections:
 ##### **1. Feedback vs. Feedforward Control**
 
 <div style="text-align: center;">
-  <img src="data/Module 05 - Vehicle Dynamic Modeling/feed-forward-loop.png" height="150">
+  <img src="data/Module 05- Vehicle Dynamic Modeling/feed-forward-loop.png" height="150">
 </div>
 
 ###### **Feedback Control**
@@ -130,7 +132,7 @@ The control architecture is divided into four sections:
 ##### **2. Combined Feedback and Feedforward Control**
 
 <div style="text-align: center;">
-  <img src="data/Module 05 - Vehicle Dynamic Modeling/combined-feedback-and-forward-control.png" height="150">
+  <img src="data/Module 05- Vehicle Dynamic Modeling/combined-feedback-and-forward-control.png" height="150">
 </div>
 docs/_posts/self-driving/data/Module 05 - Vehicle Dynamic Modeling/combined-feedback-and-forward-control.png
 - **Why combine them?**
