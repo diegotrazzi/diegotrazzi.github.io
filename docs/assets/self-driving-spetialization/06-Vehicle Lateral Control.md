@@ -190,7 +190,7 @@ To address limitations in practical scenarios:
 ### **Model Predictive Control (MPC)**
 
 <div style="text-align: center;">
-  <img src="data/06/img/mpc.png" height="250">
+  <img src="data/06/img/MPC.png" height="250">
 </div>
 
 **Model Predictive Control (MPC)** is an advanced control strategy used in autonomous vehicles for both longitudinal and lateral control. Below is a detailed breakdown of the concepts, architecture, and applications discussed.
