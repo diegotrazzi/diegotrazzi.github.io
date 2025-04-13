@@ -7,7 +7,7 @@ tags: [Python, Self-driving, Ai, Machine Learning, Carla]
 author: Diego Trazzi
 ---
 
-### [Self-Driving Hardware and Software Architectures](https://www.coursera.org/specializations/self-driving-cars)
+## [Self-Driving Hardware and Software Architectures](https://www.coursera.org/specializations/self-driving-cars)
   
 * __Module 02__: Autonomous Vehicle Hardware, Software and Environment Representation
   

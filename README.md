@@ -1,19 +1,8 @@
 # diegotrazzi.github.io
+|  |  |
+| :----------: | :----------- |
+| <img src="docs/assets/me/img/IMG_2088.jpeg" width="420"> | I’m deeply passionate about AI, computer graphics, computer vision, robotics, and self-driving technology—fields that inspire me to explore the intersection of creativity and science. My work primarily involves C, C++, Objective-C, and Swift, and I’ve been fortunate to contribute to groundbreaking projects in visual effects and immersive technologies, including Oscar-winning innovations. Beyond the technical achievements, what truly fulfills me is mentoring others. Whether through university programs, workshops, online communities, or on-the-job collaboration, I find immense joy in sharing knowledge and nurturing growth. Mentorship is not just about teaching; it’s about building connections, fostering curiosity, and empowering people to realize their potential. |
 
-All written blog posts and other content files remain exclusively owned by Diego Trazzi unless otherwise specified. However, the supporting source code used to format, display, and manage that content is licensed under the permissive MIT license, allowing others to use, modify, and distribute it under the terms of that license.
+This .io is my personal space to share ideas, projects, and reflections on the beauty of science and technology. It’s a celebration of learning and discovery outside of work. All views expressed here are my own and reflect my passion for exploration and growth.
 
 ![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)
-
-
-## Start the Jekyll Server
-
-* Run your Jekyll site locally:
-```shell
-bundle exec jekyll serve --watch
-```
-* Create a new post: 
-```shell
-bundle exec jekyll post "Hello World"
-```
-
-* [Jekyll docs](https://jekyllrb.com)

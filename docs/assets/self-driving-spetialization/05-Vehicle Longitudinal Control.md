@@ -1,15 +1,13 @@
 ---
 layout: post
-title: 05 Vehicle Dynamic Modeling
+title: 05 Vehicle Longitudinal Control
 date: 2025-04-12 11:49 -0700
 categories: [Self-driving]
 tags: [Python, Self-driving, Ai, Machine Learning, Carla]
 author: Diego Trazzi
 ---
 
-<!-- Resources and links to reference study material. -->
-
-<!-- ### [__Module 5__: Vehicle Dynamic Modeling]((https://www.coursera.org/specializations/self-driving-cars)) -->
+## [__Module 5__: Vehicle Longitudinal Control]((https://www.coursera.org/specializations/self-driving-cars))
 
 #### Lesson 1: Proportional-Integral-Derivative (PID) Control
 
@@ -231,9 +229,3 @@ The combined control architecture ensures precise tracking of the reference spee
 ###### REFERENCES
 * [GitHub - xqiao](https://github.com/qiaoxu123/Self-Driving-Cars)
 * [GitHub - daniel-s-ingram](https://github.com/daniel-s-ingram/self_driving_cars_specialization)
-
-## Other courses
-
-* 🚧 State Estimation and Localization for Self-Driving Cars.
-* 🚧 Visual Perception for Self-Driving Cars.
-* 🚧 Motion Planning for Self-Driving Cars.

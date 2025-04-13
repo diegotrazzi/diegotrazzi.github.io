@@ -7,7 +7,7 @@ tags: [Python, Self-driving, Ai, Machine Learning, Carla]
 author: Diego Trazzi
 ---
 
-### [Safety Assurance for Autonomous Vehicles](https://www.coursera.org/specializations/self-driving-cars)
+## [Safety Assurance for Autonomous Vehicles](https://www.coursera.org/specializations/self-driving-cars)
 
 * __Module 03__: Safety Assurance for Autonomous Vehicles
 
