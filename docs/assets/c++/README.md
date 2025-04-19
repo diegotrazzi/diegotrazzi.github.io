@@ -19,7 +19,7 @@ Courses in this specialization:
 
 * ✅ C++ Basics: Selection and Iteration.
 * ✅ C++ Basic Structures: Vectors, Pointers, Strings, and Files.
-* 🚧 C++ Object Basics: Functions, Recursion, and Objects.
+* ✅ C++ Object Basics: Functions, Recursion, and Objects.
 * 🚧 Object-Oriented C++: Inheritance and Encapsulation.
 
 ### [Codio - C++: Data Structures and Algorithms Specialization](https://www.coursera.org/specializations/codio-cpp-dsa)
@@ -45,3 +45,5 @@ Courses in this specialization:
 
 * [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html#Function_Names)
 * [C++ Exceptions](https://en.cppreference.com/w/cpp/error/exception)
+* [C++ Public, Protected and Private Inheritance](https://www.programiz.com/cpp-programming/public-protected-private-inheritance)
+* [C++ Inheritance](https://www.tutorialspoint.com/cplusplus/cpp_inheritance.htm)
