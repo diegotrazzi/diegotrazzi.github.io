@@ -28,14 +28,13 @@ author:
   bio              : "Ai, robots, and pixels by day; tech wizard and mentor by night — building cool stuff and helping others do the same!"
   location         : "Mountain View, California"
   employer         : "Apple"
-  uri              : # URL
+  uri              : "https://www.imdb.com/name/nm2262886/"
   email            : "diegotrazzi@gmail.com" 
 
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=6KOasykAAAAJ&hl=en"
-  imdb             : "https://www.imdb.com/name/nm2262886/"
   orcid            : # URL
   semantic         : # URL
   pubmed           : # URL
