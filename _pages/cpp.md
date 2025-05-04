@@ -43,13 +43,13 @@ category: cpp
 ### Linear Data Structures and Trees
 
 * List ADT (Abstract Tata Type):
-  * [Dynamic Array-Based List](./03%20-%20C++%20Linear%20Data%20Structures%20and%20Trees/Code%20snippets/Dynamic%20Array%20List.md)
-  * [Linked List](./03%20-%20C++%20Linear%20Data%20Structures%20and%20Trees/Code%20snippets/Linked%20List.md)
+  * [Dynamic Array-Based List](./cpp/03-Linear-Data-Structures-and-Trees/Code-snippets/Dynamic-Array-List.md)
+  * [Linked List](./cpp/03-Linear-Data-Structures-and-Trees/Code-snippets/Linked-List.md)
 * Stacks and Queues ADT
 * Tree ADT
 * Self Balancing Trees
 
-:bulb: [Notes here](./03%20-%20C++%20Linear%20Data%20Structures%20and%20Trees/README.md)
+:bulb: [Notes here](./cpp/03-Linear-Data-Structures-and-Trees/03-Linear-Data-Structures-and-Trees.md)
 
 ### Non-Linear Data Structures
 
