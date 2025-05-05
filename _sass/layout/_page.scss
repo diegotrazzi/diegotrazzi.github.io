@@ -16,15 +16,18 @@
   }
 }
 
+
 .page {
   @include breakpoint($large) {
     @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
-    @include suffix(2 of 12);
+    @include prefix(0);
+    @include suffix(0);
+    font-size: 0.72em;
   }
 
   .page__inner-wrap {
     @include full();
+    padding-left: 3rem;
 
     .page__content,
     .page__meta,

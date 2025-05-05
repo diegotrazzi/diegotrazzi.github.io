@@ -1,5 +1,4 @@
 ---
-layout: archive
 title: "C++"
 permalink: /cpp/
 category: cpp

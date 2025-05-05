@@ -7,8 +7,18 @@ redirect_from:
   - /about.html
 ---
 
+<p style="text-align: center;">
+  <img src="https://live.staticflickr.com/8507/8392922954_f229df6348_z.jpg" style="max-width: 30%; height: auto;">
+</p>
+
+
+
 I’m deeply passionate about AI, computer graphics, computer vision, robotics, and self-driving technology—fields that inspire me to explore the intersection of creativity and science. My work primarily involves C, C++, Objective-C, and Swift, and I’ve been fortunate to contribute to groundbreaking projects in visual effects and immersive technologies, including Oscar-winning innovations. Beyond the technical achievements, what truly fulfills me is mentoring others. Whether through university programs, workshops, online communities, or on-the-job collaboration, I find immense joy in sharing knowledge and nurturing growth. Mentorship is not just about teaching; it’s about building connections, fostering curiosity, and empowering people to realize their potential.
 
 This .io is my personal space to share ideas, projects, and reflections on the beauty of science and technology. It’s a celebration of learning and discovery outside of work. All views expressed here are my own and reflect my passion for exploration and growth.
+
+**Links:**  
+[LinkedIn](https://www.linkedin.com/in/diegotrazzi)  
+[IMDb](https://www.imdb.com/name/nm2262886/)
 
 ![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)
