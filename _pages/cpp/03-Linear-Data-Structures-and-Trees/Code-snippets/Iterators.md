@@ -106,7 +106,7 @@ int main() {
 }
 ```
 
-## Instert Operator 
+## Instert Operator
 
 **`iterator insert(const_iterator pos, const T& value);`**
 

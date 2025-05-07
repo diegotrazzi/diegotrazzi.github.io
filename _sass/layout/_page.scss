@@ -16,13 +16,22 @@
   }
 }
 
-
 .page {
   @include breakpoint($large) {
     @include span(10 of 12 last);
     @include prefix(0);
     @include suffix(0);
     font-size: 0.72em;
+  }
+
+  .emoji {
+    width: 30px;
+    height: 30px;
+  }
+
+  .language-plaintext {
+    color: #aaa;
+    border: 1px solid #555;
   }
 
   .page__inner-wrap {
@@ -41,7 +50,7 @@
   margin-top: 0;
   line-height: 1;
 
-  & + .page__meta {
+  &+.page__meta {
     margin-top: -0.5em;
   }
 }
@@ -63,7 +72,9 @@
     border-bottom: 1px solid var(--global-border-color);
   }
 
-  p, li, dl {
+  p,
+  li,
+  dl {
     font-size: 1em;
   }
 
@@ -72,8 +83,8 @@
     margin: 0 0 $indent-var;
 
     /* sibling indentation*/
-    @if $paragraph-indent == true {
-      & + p {
+    @if $paragraph-indent ==true {
+      &+p {
         text-indent: $indent-var;
         margin-top: -($indent-var);
       }
@@ -109,7 +120,7 @@
   }
 
   /* blockquote citations */
-  blockquote + .small {
+  blockquote+.small {
     margin-top: -1.5em;
     padding-left: 1.25rem;
   }
@@ -308,6 +319,7 @@
   transition: $global-transition;
 
   &.disabled {
+
     input,
     button,
     textarea,

@@ -7,7 +7,7 @@ category: cpp
 ## Hands-on Introduction
 
 * C++ Basics: Selection and Iteration.
-* C++ Basic Structures: Vectors, [Pointers](./01-Hands-on-Introduction/Code-snippets/Pointers-vs-references.md), Strings, and Files.
+* C++ Basic Structures: Vectors, [Pointers](./01-Hands-on-Introduction/Code-snippets/Pointers-vs-references.md), [Strings](./01-Hands-on-Introduction/Code-snippets/Strings.md), and Files.
 * C++ Object Basics: Functions, Recursion, and Objects:
   * [Constructor](./01-Hands-on-Introduction/Code-snippets/Constructor.md)
 * Object-Oriented C++: Inheritance and Encapsulation.
