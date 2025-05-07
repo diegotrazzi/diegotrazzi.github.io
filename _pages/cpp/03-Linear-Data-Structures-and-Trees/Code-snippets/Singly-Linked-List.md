@@ -54,38 +54,6 @@ class LinkedList {
 
 ## Linked List Operations
 
-### Traversal
-
-We cannot know the length of any given linked list ahead of time, so we need to utilize a while loop.
-
-```cpp
-int countNodes() {
-    Node* temp = head;
-    int counter = 0;
-    while (temp != nullptr) {
-        counter += 1;
-        temp = temp->next;
-    }
-    return counter;
-}
-```
-
-### Search
-
-To search for a node in a linked list, you are going to use a linear search. Unlike searching an array, you do not return an index, as direct access to a value is not done in a linked list.
-
-```cpp
-bool search(int data) {
-    Node* current = head;
-    while (current != nullptr) {
-        if (current->data == data)
-            return true;
-        current = current->next;
-    }
-    return false;
-}
-```
-
 ### Insertion
 
 To insert a node at the beginning of the list, you have to change the head to the new node and make the new node point to the original head.
@@ -139,5 +107,39 @@ void deleteNode(int data) {
 
     prev->next = temp->next;
     delete temp;
+}
+```
+
+## Navigating a Circular Linked List
+
+### Traversal
+
+We cannot know the length of any given linked list ahead of time, so we need to utilize a while loop.
+
+```cpp
+int countNodes() {
+    Node* temp = head;
+    int counter = 0;
+    while (temp != nullptr) {
+        counter += 1;
+        temp = temp->next;
+    }
+    return counter;
+}
+```
+
+### Search
+
+To search for a node in a linked list, you are going to use a linear search. Unlike searching an array, you do not return an index, as direct access to a value is not done in a linked list.
+
+```cpp
+bool search(int data) {
+    Node* current = head;
+    while (current != nullptr) {
+        if (current->data == data)
+            return true;
+        current = current->next;
+    }
+    return false;
 }
 ```

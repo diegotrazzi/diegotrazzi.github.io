@@ -8,7 +8,15 @@ title: "Doubly Linked List"
 
 A doubly linked list (DLL) is a list of nodes, where each node has two pointers. One references the next node in the list, while the other pointer references the previous node.
 
-In a doubly linked list: inserting at the beginning costs $O(1)$; inserting at the end costs $O(1)$ with a tail pointer, else $O(n)$; inserting at a position costs $O(n)$ due to traversal. Deleting at the beginning is $O(1)$; at the end, $O(1)$ with tail, else $O(n)$; deleting at a position is $O(n)$, or $O(1)$ if you already have the node pointer. Traversal is $O(n)$, and searching is $O(n)$.
+In a doubly linked list:
+
+* Inserting at the beginning costs $O(1)$
+* Inserting at the end costs $O(1)$ with a tail pointer, else $O(n)$
+* Inserting at a position costs $O(n)$ due to traversal
+* Deleting at the beginning is $O(1)$
+* Deleting at the end, $O(1)$ with tail, else $O(n)$
+* Deleting at a position is $O(n)$, or $O(1)$ if you already have the node pointer
+* Traversal is $O(n)$, and searching is $O(n)$.
 
 ## Doubly Linked List Implementation
 
@@ -39,52 +47,6 @@ public:
 ```
 
 ## Linked List Operations
-
-### Traversal
-
-We cannot know the length of any given linked list ahead of time, so we need to utilize a while loop (same as singly linked list).
-
-```cpp
-  void printList() {
-      Node* temp = head;
-      while (temp != nullptr) {
-          std::cout << temp->data << " ";
-          temp = temp->next;
-      }
-      std::cout << std::endl;
-  }
-
-  void reversePrint() {
-      Node* current = tail;
-
-      while (current != nullptr) {
-          std::cout << current->data << " ";
-          current = current->prev;
-      }
-      std::cout << std::endl;
-    }
-```
-
----
-
-### Search
-
-Searching a doubly linked list is still done in a linear manner. Let’s take a look at how we can simplify some of our other operations using a search method.
-
-```cpp
-Node* findNode(int value) {
-        Node* current = head;
-        while (current != nullptr) {
-            if (current->data == value) {
-                return current;
-            }
-            current = current->next;
-        }
-        return nullptr; // node not found
-    }
-```
-
----
 
 ### Insertion
 
@@ -270,5 +232,51 @@ void deleteNode(Node* del) {
         del->prev->next = del->next;
         del->next->prev = del->prev;
         delete del;
+    }
+```
+
+## Navigating a Circular Linked List
+
+### Traversal
+
+We cannot know the length of any given linked list ahead of time, so we need to utilize a while loop (same as singly linked list).
+
+```cpp
+  void printList() {
+      Node* temp = head;
+      while (temp != nullptr) {
+          std::cout << temp->data << " ";
+          temp = temp->next;
+      }
+      std::cout << std::endl;
+  }
+
+  void reversePrint() {
+      Node* current = tail;
+
+      while (current != nullptr) {
+          std::cout << current->data << " ";
+          current = current->prev;
+      }
+      std::cout << std::endl;
+    }
+```
+
+---
+
+### Search
+
+Searching a doubly linked list is still done in a linear manner. Let’s take a look at how we can simplify some of our other operations using a search method.
+
+```cpp
+Node* findNode(int value) {
+        Node* current = head;
+        while (current != nullptr) {
+            if (current->data == value) {
+                return current;
+            }
+            current = current->next;
+        }
+        return nullptr; // node not found
     }
 ```

@@ -1,5 +1,5 @@
 ---
-title: "C++"
+title: "Data Structures & Algorithms (C++)"
 permalink: /cpp/
 category: cpp
 ---
@@ -7,12 +7,10 @@ category: cpp
 ## Hands-on Introduction
 
 * C++ Basics: Selection and Iteration.
-* C++ Basic Structures: Vectors, Pointers, Strings, and Files.
+* C++ Basic Structures: Vectors, [Pointers](./01-Hands-on-Introduction/Code-snippets/Pointers-vs-references.md), Strings, and Files.
 * C++ Object Basics: Functions, Recursion, and Objects:
-  * Constructor
+  * [Constructor](./01-Hands-on-Introduction/Code-snippets/Constructor.md)
 * Object-Oriented C++: Inheritance and Encapsulation.
-
-:bulb: [Notes here](./cpp/01-Hands-on-Introduction/01-Hands-on-Introduction.md)
 
 ---
 
@@ -26,37 +24,38 @@ category: cpp
 * Greedy Algorithms
 * Dynamic Programming
 * Sorting Algorithms:
-  * [Selection Sort](./cpp/02-Algorithms/Code-snippets/Sorting-Algorithms-Selection-Sort.md)
-  * [Bubble Sort](./cpp/02-Algorithms/Code-snippets/Sorting-Algorithms-Bubble-Sort.md)
-  * [Insertion Sort](./cpp/02-Algorithms/Code-snippets/Sorting-Algorithms-Insertion-Sort.md)
+  * [Selection Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Selection-Sort.md)
+  * [Bubble Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Bubble-Sort.md)
+  * [Insertion Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Insertion-Sort.md)
   * Recursion (divide-and-conquer):
-    * [Merge Sort](./cpp/02-Algorithms/Code-snippets/Sorting-Algorithms-Merge-Sort.md)
-    * [Quick Sort](./cpp/02-Algorithms/Code-snippets/Sorting-Algorithms-Quick-Sort.md)
+    * [Merge Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Merge-Sort.md)
+    * [Quick Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Quick-Sort.md)
   * Searching Algorithms:
-    * [Linear Search](./cpp/02-Algorithms/Code-snippets/Search-Linear.md)
-    * [Binary Search](./cpp/02-Algorithms/Code-snippets/Search-Binary.md)
-    * [Jump Search](./cpp/02-Algorithms/Code-snippets/Search-Jump.md)
+    * [Linear Search](./02-Algorithms/Code-snippets/Search-Linear.md)
+    * [Binary Search](./02-Algorithms/Code-snippets/Search-Binary.md)
+    * [Jump Search](./02-Algorithms/Code-snippets/Search-Jump.md)
 
-:bulb: [Notes here](./cpp/02-Algorithms/02-Algorithms.md)
+> :point_right: [More notes here](./02-Algorithms/02-Algorithms.md)
 
 ### Linear Data Structures and Trees
 
 * List ADT (Abstract Tata Type):
-  * [Dynamic Array-Based List](./cpp/03-Linear-Data-Structures-and-Trees/Code-snippets/Dynamic-Array-List.md)
-  * [Linked List](./cpp/03-Linear-Data-Structures-and-Trees/Code-snippets/Linked-List.md)
+  * [Dynamic Array-Based List](./03-Linear-Data-Structures-and-Trees/Code-snippets/Dynamic-Array-List.md)
+  * Linked Lists:
+    * [Singly Linked List](./03-Linear-Data-Structures-and-Trees/Code-snippets/Singly-Linked-List.md)
+    * [Doubly Linked List](./03-Linear-Data-Structures-and-Trees/Code-snippets/Doubly-Linked-List.md)
+    * [Circular Linked List](./03-Linear-Data-Structures-and-Trees/Code-snippets/Circular-Linked-List.md)
+  * [Iterators](./03-Linear-Data-Structures-and-Trees/Code-snippets/Iterators.md)
+  
 * Stacks and Queues ADT
 * Tree ADT
 * Self Balancing Trees
-
-:bulb: [Notes here](./cpp/03-Linear-Data-Structures-and-Trees/03-Linear-Data-Structures-and-Trees.md)
 
 ### Non-Linear Data Structures
 
 ...
 
----
-
-## Other Courses to Consider
+## Online Resources
 
 * ✅ [Codio - C++: Data Structures and Algorithms Specialization](https://www.coursera.org/specializations/codio-cpp-dsa)
   * [C++: Algorithms](https://www.coursera.org/learn/codio-cpp-algorithms)
@@ -79,8 +78,6 @@ category: cpp
 🚧 = ENROLLED
 🟠 = MAYBE
 🔴 = EXCLUDED
-
----
 
 ### Books
 

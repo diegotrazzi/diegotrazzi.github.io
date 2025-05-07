@@ -1,13 +1,12 @@
 ---
-title: "Hands-on Introduction"
-permalink: /cpp/01-Hands-on-Introduction/
+title: "Constructor"
 ---
 
-* C++ Basics: Selection and Iteration
-* C++ Basic Structures: Vectors, Pointers, Strings, and Files
-* C++ Object Basics: Functions, Recursion, and Objects
-  * Constructor
-* Object-Oriented C++: Inheritance and Encapsulation
+* C++ Basics: Selection and Iteration.
+* C++ Basic Structures: Vectors, [Pointers](./01-Hands-on-Introduction/Code-snippets/Pointers-vs-references.md), Strings, and Files.
+* C++ Object Basics: Functions, Recursion, and Objects:
+  * **[Constructor](./01-Hands-on-Introduction/Code-snippets/Constructor.md)**
+* Object-Oriented C++: Inheritance and Encapsulation.
 
 ## Constructor with Initializer List vs. Body Assignment
 

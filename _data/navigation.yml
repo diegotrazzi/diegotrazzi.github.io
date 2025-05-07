@@ -14,7 +14,7 @@ main:
   # - title: "Ai"
   #   url: /ai/    
 
-  - title: "C++"
+  - title: "Data Structures & Algorithms (C++)"
     url: /cpp/    
     
   # - title: "Computer Vision"
