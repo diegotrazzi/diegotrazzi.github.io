@@ -5,7 +5,7 @@ title: "Selection Sort"
 Selection sort is a simple comparison-based sorting algorithm. It works by repeatedly selecting the smallest (or largest, depending on sorting order) element from the unsorted portion of the list and swapping it with the first unsorted element. Here's a step-by-step explanation of how selection sort works in C++:
 
 <div style="text-align: center">
-  <img src="/images/cpp/02-Algorithms/Selection-Sort-Animation.gif" height="350">
+  <img src="/images/cpp/02-Algorithms/Selection-Sort-Animation.gif" height="150">
 </div>
 
 ### Steps of Selection Sort:

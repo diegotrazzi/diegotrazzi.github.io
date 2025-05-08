@@ -5,7 +5,7 @@ title: "Binary Search"
 #### Binary Search
 
 <div style="text-align: center">
-  <img src="/images/cpp/02-Algorithms/Binary-search-work.gif" height="400">
+  <img src="/images/cpp/02-Algorithms/Binary-search-work.gif" height="150">
 </div>
 
 Binary search is a fast search algorithm that works on **sorted arrays** by repeatedly dividing the search interval in half. It compares the target value to the middle element and eliminates half of the remaining elements each time.

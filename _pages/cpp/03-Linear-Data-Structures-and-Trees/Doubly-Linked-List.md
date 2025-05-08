@@ -3,7 +3,7 @@ title: "Doubly Linked List"
 ---
 
 <div style="text-align: center;">
-  <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/doubly-linked-list.webp" alt="BigO" height="100">
+  <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/doubly-linked-list.webp" alt="BigO" height="150">
 </div>
 
 A doubly linked list (DLL) is a list of nodes, where each node has two pointers. One references the next node in the list, while the other pointer references the previous node.

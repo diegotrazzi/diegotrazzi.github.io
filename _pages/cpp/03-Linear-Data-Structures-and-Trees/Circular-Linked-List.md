@@ -72,17 +72,20 @@ If the list is not empty, set newNode->next to head, set tail->next to newNode, 
 
 ```cpp
 void insertAtEnd(int data) {
-    Node* newNode = new Node(data);
+        Node* newNode = new Node(data);
 
-    if(head == nullptr) {
-        // List is empty, make the new node the head and tail.
-        head = newNode;
+        if(head == nullptr) {
+            // List is empty, make the new node the head and tail.
+            head = newNode;
+            tail = newNode;
+            newNode->next = newNode;
+            return;
+        }
+
+        newNode->next = head;
+        tail->next = newNode; // Point to itself for circularity.
         tail = newNode;
-        newNode->next = newNode; 
-        return;
     }
-
-}
 ```
 
 #### At a Specific Position

@@ -34,9 +34,9 @@ Where:
 
 Greedy algorithms build up a solution piece by piece, always choosing the next piece that offers the most immediate benefit or profit. This approach is mainly used to solve optimization problems: Efficiency, Simplicity and Optimality.
 
-- Coin Change Example: [Code](./Code-snippets/Challenges/Greedy-Coin-Change.md)
-- Knapsack 01: [Code](./Code-snippets/Challenges/Greedy-Knapsac-01.md)
-- Knapsack 02: [Code](./Code-snippets/Challenges/Greedy-Knapsack-02.md)
+- Coin Change Example: [Code](./Challenges/Greedy-Coin-Change.md)
+- Knapsack 01: [Code](./Challenges/Greedy-Knapsac-01.md)
+- Knapsack 02: [Code](./Challenges/Greedy-Knapsack-02.md)
 
 ### Dynamic Programming
 
@@ -44,22 +44,22 @@ Dynamic programming is a technique for solving problems by breaking them down in
 
 **Memoization** is an optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again. This is commonly referred to as a top-down approach.
 
-- Recusive Fibonacci with Memoization: [Code](./Code-snippets/Memoization-Recursive-Fibonacci.md)
-- Iterative Fibonacci Sequence with Memoization: [Code](./Code-snippets/Memoization-Iterative-Fibonacci.md)
+- Recusive Fibonacci with Memoization: [Code](./Memoization-Recursive-Fibonacci.md)
+- Iterative Fibonacci Sequence with Memoization: [Code](./Memoization-Iterative-Fibonacci.md)
 
 **Tabulation**
 Another way to implement dynamic programming is through tabulation. That is, we use a 2D array to store data in a table, where the elements are arranged into rows and columns. Each cell in the table contains solutions to all of the sub-problems that make up a larger problem. This is commonly referred to as a bottom-up approach.
 
-- Longest Common Subsequence (LCS): [Code](./Code-snippets/Memoization-Longest-Common-Subsequence.md)
+- Longest Common Subsequence (LCS): [Code](./Memoization-Longest-Common-Subsequence.md)
 
 ## Module 3 | Sorting Algorithms
 
-- [Selection Sort](./Code-snippets/Sorting-Algorithms-Selection-Sort.md)
-- [Bubble Sort](./Code-snippets/Sorting-Algorithms-Bubble-Sort.md)
-- [Insertion Sort](./Code-snippets/Sorting-Algorithms-Insertion-Sort.md)
+- [Selection Sort](./Sorting-Algorithms-Selection-Sort.md)
+- [Bubble Sort](./Sorting-Algorithms-Bubble-Sort.md)
+- [Insertion Sort](./Sorting-Algorithms-Insertion-Sort.md)
 - Recursion (divide-and-conquer):
-  - [Merge Sort](./Code-snippets/Sorting-Algorithms-Merge-Sort.md)
-  - [Quick Sort](./Code-snippets/Sorting-Algorithms-Quick-Sort.md)
+  - [Merge Sort](./Sorting-Algorithms-Merge-Sort.md)
+  - [Quick Sort](./Sorting-Algorithms-Quick-Sort.md)
 
 Not covered in this course:
 
@@ -71,9 +71,9 @@ Not covered in this course:
 
 ## Module 3 | Searching Algorithms
 
-- [Linear Search](./Code-snippets/Search-Linear.md)
-- [Binary Search](./Code-snippets/Search-Binary.md)
-- [Jump Search](./Code-snippets/Search-Jump.md)
+- [Linear Search](./Search-Linear.md)
+- [Binary Search](./Search-Binary.md)
+- [Jump Search](./Search-Jump.md)
 
 Not covered in this course:
 

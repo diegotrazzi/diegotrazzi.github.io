@@ -2,13 +2,6 @@
 title: "String"
 ---
 
-* C++ Basics: Selection and Iteration.
-* C++ Basic Structures: Vectors, [Pointers](./01-Hands-on-Introduction/Code-snippets/Pointers-vs-references.md), **[Strings](./01-Hands-on-Introduction/Code-snippets/Strings.md)**, and Files.
-* C++ Object Basics: Functions, Recursion, and Objects:
-  * [Constructor](./01-Hands-on-Introduction/Code-snippets/Constructor.md)
-* Object-Oriented C++: Inheritance and Encapsulation.
-
-
 ## Using size_t for Position Tracking
 
 * In C++, the `size_t` type is commonly used for holding the position of elements in containers or strings.

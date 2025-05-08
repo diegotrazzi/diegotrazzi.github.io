@@ -3,7 +3,7 @@ title: "Merge Sort Algorithm (With Recursion)"
 ---
 
 <div style="text-align: center;">
-  <img src="/images/cpp/02-Algorithms/Merge-sort.gif" height="200">
+  <img src="/images/cpp/02-Algorithms/Merge-sort.gif" height="150">
 </div>
 
 ## Steps
@@ -99,7 +99,7 @@ public:
 ## Merge Sort - $O(n \log_2 n)$
 
 <div style="text-align: center;">
-  <img src="/images/cpp/02-Algorithms/Merge-sort-O.png" height="250">
+  <img src="/images/cpp/02-Algorithms/Merge-sort-O.png" height="150">
 </div>
 
 Cost: $\mathcal{O}(n \log_2 n)$ because each sort is half of the previous

@@ -2,12 +2,6 @@
 title: "Constructor"
 ---
 
-* C++ Basics: Selection and Iteration.
-* C++ Basic Structures: Vectors, [Pointers](./01-Hands-on-Introduction/Code-snippets/Pointers-vs-references.md), Strings, and Files.
-* C++ Object Basics: Functions, Recursion, and Objects:
-  * **[Constructor](./01-Hands-on-Introduction/Code-snippets/Constructor.md)**
-* Object-Oriented C++: Inheritance and Encapsulation.
-
 ## Constructor with Initializer List vs. Body Assignment
 
 In C++, you can assign member variables in two ways: using an **initializer list** or by assigning inside the constructor body.

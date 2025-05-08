@@ -5,11 +5,11 @@ title: "Insertion Sort"
 Insertion Sort is a simple and intuitive sorting algorithm that builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, it has several advantages, such as simplicity, efficiency on small data sets, and the ability to sort a list as it receives it.
 
 <div style="text-align: center;">
-  <img src="/images/cpp/02-Algorithms/Insertion-sort-example-300px.gif" height="250">
+  <img src="/images/cpp/02-Algorithms/Insertion-sort-example-300px.gif" height="150">
 </div>
 
 <div style="text-align: center;">
-  <img src="/images/cpp/02-Algorithms/Insertion-sorting.png" height="400">
+  <img src="/images/cpp/02-Algorithms/Insertion-sorting.png" height="150">
 </div>
 
 ### How Insertion Sort Works

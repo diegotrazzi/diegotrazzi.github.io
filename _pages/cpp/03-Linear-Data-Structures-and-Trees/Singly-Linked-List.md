@@ -3,7 +3,7 @@ title: "Singly Linked List"
 ---
 
 <div style="text-align: center;">
-  <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/linked-list.png" alt="BigO" height="100">
+  <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/linked-list.png" alt="BigO" height="150">
 </div>
 
 - No wasted space as it grows/shrinks **dynamically**.

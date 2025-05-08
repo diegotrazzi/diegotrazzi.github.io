@@ -3,7 +3,7 @@ title: "Quick Sort"
 ---
 
 <div style="text-align: center;">
-  <img src="/images/cpp/02-Algorithms/Quicksort-example.gif" height="200">
+  <img src="/images/cpp/02-Algorithms/Quicksort-example.gif" height="150">
 </div>
 
 Quick sort is based on the divide-and-conquer approach based on the idea of choosing one element as a pivot element and partitioning the array around it such that: Left side of pivot contains all the elements that are less than the pivot element Right side contains all elements greater than the pivot

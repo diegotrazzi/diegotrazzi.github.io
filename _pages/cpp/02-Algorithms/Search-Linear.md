@@ -3,7 +3,7 @@ title: "Linear Search"
 ---
 
 <div style="text-align: center;">
-  <img src="/images/cpp/02-Algorithms/linear-search.gif" height="400">
+  <img src="/images/cpp/02-Algorithms/linear-search.gif" height="150">
 </div>
 
 Linear search is the simplest search algorithm. It checks each element of a list sequentially until the desired element is found or the list ends.

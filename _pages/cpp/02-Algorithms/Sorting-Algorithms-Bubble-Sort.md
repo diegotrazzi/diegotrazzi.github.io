@@ -3,7 +3,7 @@ title: "Bubble Sort"
 ---
 
 <div style="text-align: center;">
-  <img src="/images/cpp/02-Algorithms/Bubble-sort-example-300px.gif" height="200">
+  <img src="/images/cpp/02-Algorithms/Bubble-sort-example-300px.gif" height="150">
 </div>
 
 Bubble Sort is a simple comparison-based sorting algorithm that works by repeatedly swapping adjacent elements if they are in the wrong order. With each pass, the largest unsorted element "bubbles up" to its correct position.

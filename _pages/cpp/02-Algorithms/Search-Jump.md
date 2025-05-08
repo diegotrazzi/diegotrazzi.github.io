@@ -3,7 +3,7 @@ title: "Jump Search"
 ---
 
 <div style="text-align: center;">
-  <img src="/images/cpp/02-Algorithms/jump-search.gif" height="400">
+  <img src="/images/cpp/02-Algorithms/jump-search.gif" height="150">
 </div>
 
 Jump Search is an efficient algorithm for **sorted arrays**. It works by jumping ahead by fixed steps and then performing a **linear search** within the block where the target may lie.

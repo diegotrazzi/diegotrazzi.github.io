@@ -24,30 +24,37 @@ category: cpp
 * Greedy Algorithms
 * Dynamic Programming
 * Sorting Algorithms:
-  * [Selection Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Selection-Sort.md)
-  * [Bubble Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Bubble-Sort.md)
-  * [Insertion Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Insertion-Sort.md)
+  * [Selection Sort](./02-Algorithms/Sorting-Algorithms-Selection-Sort.md)
+  * [Bubble Sort](./02-Algorithms/Sorting-Algorithms-Bubble-Sort.md)
+  * [Insertion Sort](./02-Algorithms/Sorting-Algorithms-Insertion-Sort.md)
   * Recursion (divide-and-conquer):
-    * [Merge Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Merge-Sort.md)
-    * [Quick Sort](./02-Algorithms/Code-snippets/Sorting-Algorithms-Quick-Sort.md)
+    * [Merge Sort](./02-Algorithms/Sorting-Algorithms-Merge-Sort.md)
+    * [Quick Sort](./02-Algorithms/Sorting-Algorithms-Quick-Sort.md)
   * Searching Algorithms:
-    * [Linear Search](./02-Algorithms/Code-snippets/Search-Linear.md)
-    * [Binary Search](./02-Algorithms/Code-snippets/Search-Binary.md)
-    * [Jump Search](./02-Algorithms/Code-snippets/Search-Jump.md)
+    * [Linear Search](./02-Algorithms/Search-Linear.md)
+    * [Binary Search](./02-Algorithms/Search-Binary.md)
+    * [Jump Search](./02-Algorithms/Search-Jump.md)
 
 > :point_right: [More notes here](./02-Algorithms/02-Algorithms.md)
 
-### Linear Data Structures and Trees
+### ADT - Abstract Tata Types
 
-* List ADT (Abstract Tata Type):
-  * [Dynamic Array-Based List](./03-Linear-Data-Structures-and-Trees/Code-snippets/Dynamic-Array-List.md)
+#### Linear Data Structures and Trees
+
+* List:
+  * [Dynamic Array-Based List](./03-Linear-Data-Structures-and-Trees/Dynamic-Array-List.md)
   * Linked Lists:
-    * [Singly Linked List](./03-Linear-Data-Structures-and-Trees/Code-snippets/Singly-Linked-List.md)
-    * [Doubly Linked List](./03-Linear-Data-Structures-and-Trees/Code-snippets/Doubly-Linked-List.md)
-    * [Circular Linked List](./03-Linear-Data-Structures-and-Trees/Code-snippets/Circular-Linked-List.md)
-  * [Iterators](./03-Linear-Data-Structures-and-Trees/Code-snippets/Iterators.md)
-  
-* Stacks and Queues ADT
+    * [Singly Linked List](./03-Linear-Data-Structures-and-Trees/Singly-Linked-List.md)
+    * [Doubly Linked List](./03-Linear-Data-Structures-and-Trees/Doubly-Linked-List.md)
+    * [Circular Linked List](./03-Linear-Data-Structures-and-Trees/Circular-Linked-List.md)
+  * [Iterators](./03-Linear-Data-Structures-and-Trees/Iterators.md)
+* Stacks (LIFO):
+  * [Array Based Stack](./03-Linear-Data-Structures-and-Trees/Stack-Array.md)
+  * [List Based Stack](./03-Linear-Data-Structures-and-Trees/Stack-List.md)
+* Queues (FIFO):
+  * [Array Based Queue](./03-Linear-Data-Structures-and-Trees/Queue-Array.md)
+  * [Linked List Based Queue](./03-Linear-Data-Structures-and-Trees/Queue-Array.md)
+  * [Dynamic Array Based Queue](./03-Linear-Data-Structures-and-Trees/Queue-Dynamic-Array.md)
 * Tree ADT
 * Self Balancing Trees
 
