@@ -1,5 +1,5 @@
 ---
-title: "Array-Based Implementation of Queue (FIFO)"
+title: "Array-Based Implementation of Queue (Ring Buffer)"
 ---
 
 <div style="text-align: center;">
