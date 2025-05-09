@@ -53,7 +53,7 @@ category: cpp
   * [List Based Stack](./03-Linear-Data-Structures-and-Trees/Stack-List.md)
 * Queues (FIFO):
   * [Array Based Queue (Ring Buffer)](./03-Linear-Data-Structures-and-Trees/Queue-Array.md)
-  * [Linked List Based Queue](./03-Linear-Data-Structures-and-Trees/Queue-Array.md)
+  * [Linked List Based Queue](./03-Linear-Data-Structures-and-Trees/Queue-LL.md)
   * [Dynamic Array Based Queue](./03-Linear-Data-Structures-and-Trees/Queue-Dynamic-Array.md)
 * Tree ADT
 * Self Balancing Trees
