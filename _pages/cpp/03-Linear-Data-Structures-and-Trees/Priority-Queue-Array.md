@@ -1,14 +1,14 @@
 ---
-title: "Array-Based Implementation of Priority Queue"
+title: "Array Based Implementation of Priority Queue"
 ---
 
 <div style="text-align: center;">
   <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/Priority-Queue-Array02.png" alt="CLL" height="250">
 </div>
 
-A **priority queue** is a data structure where elements are dequeued based on priority rather than just FIFO order, making it useful for tasks like scheduling and data compression. In the current context, integers represent priority, with **larger numbers having higher priority**. Core operations include **enqueue (insert with priority), dequeue (remove highest priority), peek, isEmpty, and size**. Implementations range from simple arrays and linked lists, $O(n)$ to binary and Fibonacci heaps, $O(log_n)$.
+A **priority queue** is a data structure where elements are dequeued based on priority rather than just FIFO order, making it useful for tasks like scheduling and data compression. In the current context, integers represent priority, with **larger numbers having higher priority**. Core operations include **enqueue (insert with priority), dequeue (remove highest priority), peek, isEmpty, and size**. Implementations range from simple arrays and linked lists, $O(n)$ for `enqueue()` operations, to binary and Fibonacci heaps, $O(log_n)$.
 
-## Array-Based Implementation
+## Array Based Implementation
 
 > :warning: An array-based priority queue stores elements in order of priority, requiring traversal of the array to insert or remove elements in the correct position. Both enqueue and dequeue have $O(n)$ time complexity in the worst case due to this traversal.
 
@@ -92,7 +92,11 @@ public:
         return size == capacity;
     }
 };
+```
 
+Main method:
+
+```cpp
 int main() {
     ArrayPriorityQueue myPQ(5);
     myPQ.enqueue(3);

@@ -44,9 +44,9 @@ category: cpp
 * List:
   * [Dynamic Array-Based List](./03-Linear-Data-Structures-and-Trees/Dynamic-Array-List.md)
   * Linked Lists:
-    * [Singly Linked List](./03-Linear-Data-Structures-and-Trees/Singly-Linked-List.md)
-    * [Doubly Linked List](./03-Linear-Data-Structures-and-Trees/Doubly-Linked-List.md)
-    * [Circular Linked List](./03-Linear-Data-Structures-and-Trees/Circular-Linked-List.md)
+    * [Singly Linked List](./03-Linear-Data-Structures-and-Trees/List-Singly-Linked-List.md)
+    * [Doubly Linked List](./03-Linear-Data-Structures-and-Trees/List-Doubly-Linked-List.md)
+    * [Circular Linked List](./03-Linear-Data-Structures-and-Trees/List-Circular-Linked-List.md)
   * [Iterators](./03-Linear-Data-Structures-and-Trees/Iterators.md)
 * Stacks (LIFO):
   * [Array Based Stack](./03-Linear-Data-Structures-and-Trees/Stack-Array.md)
@@ -55,6 +55,10 @@ category: cpp
   * [Array Based Queue (Ring Buffer)](./03-Linear-Data-Structures-and-Trees/Queue-Array.md)
   * [Linked List Based Queue](./03-Linear-Data-Structures-and-Trees/Queue-LL.md)
   * [Dynamic Array Based Queue](./03-Linear-Data-Structures-and-Trees/Queue-Dynamic-Array.md)
+* Priority Queues:
+  * [Array Based Priority Queue](./03-Linear-Data-Structures-and-Trees/Priority-Queue-Array.md)
+  * [Linked List Based Priority Queue](./03-Linear-Data-Structures-and-Trees/Priority-Queue-LL.md)
+  * [Vector Based Priority Queue](./03-Linear-Data-Structures-and-Trees/Priority-Queue-Dynamic-Array.md)
 * Tree ADT
 * Self Balancing Trees
 
