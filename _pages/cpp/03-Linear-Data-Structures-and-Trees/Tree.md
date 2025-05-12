@@ -12,14 +12,14 @@ A **node’s height is the number of edges on the longest path from the node to 
 
 Properties:
 
-* **Maximum number of nodes at level `l`**: 
-  * $Maximum Nodes = 2^{(l-1)}$, where level starts at 0.
-* **Maximum number of nodes in a tree of height `h`**, assuming the tree is full:
+* **Maximum number of nodes at level `l`**:
+  * $Maximum Nodes = 2^{(i)}$, where level starts at 0.
+* **Maximum number of nodes in a tree of height `h`**, assuming the tree is full and **height = number of nodes**, then:
   * $Maximum Nodes = 2^{h}-1$
 * **Minimum height for a binary tree with `L` leaves**:  
   * $Internal Nodes = L-1$
 * **Minimum height of a binary tree with `n` nodes**:  
-  * $Minimum Height = [log_2(n+1)]$
+  * $Minimum Height = log_2(n+1)$
 
 To represent a tree we define a `TreeNode` class containing an integer value and **pointers to left and right children**. This forms the basis for a binary tree, where each node can have up to two children. A `BinaryTree` class manages the tree with a root node initialized in the constructor.
 

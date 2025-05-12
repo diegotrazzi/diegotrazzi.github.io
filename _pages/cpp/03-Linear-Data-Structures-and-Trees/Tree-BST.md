@@ -14,13 +14,14 @@ A Binary Search Tree (BST) is a hierarchical, node-based structure where:
 
 Key Benefits:
 
-* Efficient search, insertion, deletion in O(h), where h is the height.
+* Efficient search, insertion, deletion in $O(h)$, where h is the height.
 * In-order traversal yields sorted data.
 * Dynamically resizable, unlike arrays.
 * Self-balancing variants (AVL, Red-Black) ensure optimal performance.
 
 ```cpp
 struct TreeNode {
+public:  
     int value;
     TreeNode* left;
     TreeNode* right;
@@ -78,7 +79,6 @@ private:
         return node;
     }
 };
-};
 ```
 
 ## Deleteion
@@ -133,6 +133,70 @@ Binary Search Trees can be printed in two ways:
 *	**In-order traversal** (left-root-right) prints nodes in sorted order. This is done recursively by visiting left subtree, printing the node, then visiting the right subtree.
 * **Level-order traversal** prints nodes level by level using a queue (FIFO). Nodes are enqueued level by level and dequeued to print their values, showing the hierarchical tree structure.
 
-```cpp
+### Depth-First Traversal (DFT)
 
+```cpp
+public:
+  void inorderTraversal() {
+        std::cout << "In-order Traversal:";
+        inorder(root);
+        std::cout << std::endl;
+    }
+```
+
+```cpp
+private:
+    void inorderRecursive(TreeNode* node) {
+        if (node != nullptr) {
+            inorderRecursive(node->left); // visit left subtree
+            std::cout << " " << node->value; // print data of the node
+            inorderRecursive(node->right); // visit right subtree
+        }
+    }
+```
+
+### Breadth-First Traversal (BFT)
+
+```cpp
+public:
+    void printLevelOrder() {
+        printLevels(root);
+    }
+```
+
+```cpp
+#include <queue>
+private:
+    void printLevels(TreeNode* node) {
+        if (node == nullptr) {
+            std::cout << "The tree is empty" << std::endl;
+            return;
+        }
+
+        std::queue<TreeNode*> queue;
+        queue.push(node);
+        int level = 0;
+
+        while (!queue.empty()) {
+            int size = queue.size();
+            std::cout << "Level " << level << ": ";
+            level++;
+
+            // traverse all nodes of current level
+            for (int i = 0; i < size; i++) {
+                TreeNode* currentNode = queue.front();
+                queue.pop();
+
+                // print current node
+                std::cout << currentNode->value << " ";
+
+                // add child nodes to queue for next level
+                if (currentNode->left != nullptr) queue.push(currentNode->left);
+                if (currentNode->right != nullptr) queue.push(currentNode->right);
+            }
+
+            // newline after printing each level
+            std::cout << std::endl;
+        }
+    }
 ```

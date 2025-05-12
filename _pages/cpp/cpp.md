@@ -64,6 +64,7 @@ category: cpp
   * [Deque - Array](./03-Linear-Data-Structures-and-Trees/Deque-Doubly-LL.md)
 * Tree:
   * [Tree Traversals](./03-Linear-Data-Structures-and-Trees/Tree.md)
+  * [Binary Search Tree]()
 * Self Balancing Trees
 
 ### Non-Linear Data Structures
