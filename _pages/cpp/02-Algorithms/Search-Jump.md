@@ -12,17 +12,17 @@ Optimal step size is $\sqrt{n}$ for minimizing comparisons.
 
 ## Steps
 
-#### Step 1: Choose Block Size
+### Step 1: Choose Block Size
 
-- Typically: `step = sqrt(n)`
+* Typically: `step = sqrt(n)`
 
-#### Step 2: Jump in Steps
+### Step 2: Jump in Steps
 
-- Jump ahead by `step` until `arr[min(step, n)-1] >= target` or end of array.
+* Jump ahead by `step` until `arr[min(step, n)-1] >= target` or end of array.
 
-#### Step 3: Linear Search in Block
+### Step 3: Linear Search in Block
 
-- Perform linear search from previous index to current step.
+* Perform linear search from previous index to current step.
 
 ## Full Implementation
 
@@ -53,7 +53,7 @@ int jumpSearch(int arr[], int size, int target) {
 ### Time Complexity
 
 * Best Case: $O(1)$
-- Average/Worst Case: $O(\sqrt{n})$
+* Average/Worst Case: $O(\sqrt{n})$
 
 ### Space Complexity
 
@@ -62,14 +62,19 @@ int jumpSearch(int arr[], int size, int target) {
 ### Advantages
 
 * Faster than linear search for sorted arrays
-- Easy to implement
+* Easy to implement
 
 ### Disadvantages
 
 * Requires sorted data
-- Slower than binary search
+* Slower than binary search
 
 ### Use Cases
 
 * Sorted data where binary search is not ideal (e.g., high cost of index access)
-- Memory-constrained systems needing low space overhead
+* Memory-constrained systems needing low space overhead
+
+## REFERENCES
+
+* [Algorithms Visualization](https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/visualize/)
+* [Comparison Sorting Algorithms - USF](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)

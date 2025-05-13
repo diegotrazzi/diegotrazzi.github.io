@@ -18,11 +18,11 @@ category: cpp
 
 ### Algorithms
 
-* Big O, Big Theta, Big Omega
-* Recursion
+* [Big O, Big Theta, Big Omega](./02-Algorithms/BigO.md)
+* [Recursion](./02-Algorithms/Recursion.md)
 * Divide and Conquer
-* Greedy Algorithms
-* Dynamic Programming
+* [Greedy Algorithms](./02-Algorithms/Greedy-Algorithms.md)
+* [Dynamic Programming](./02-Algorithms/Dynamic-Programming.md)
 * Sorting Algorithms:
   * [Selection Sort](./02-Algorithms/Sorting-Algorithms-Selection-Sort.md)
   * [Bubble Sort](./02-Algorithms/Sorting-Algorithms-Bubble-Sort.md)
@@ -34,8 +34,6 @@ category: cpp
     * [Linear Search](./02-Algorithms/Search-Linear.md)
     * [Binary Search](./02-Algorithms/Search-Binary.md)
     * [Jump Search](./02-Algorithms/Search-Jump.md)
-
-> :point_right: [More notes here](./02-Algorithms/02-Algorithms.md)
 
 ### ADT - Abstract Tata Types
 
@@ -64,8 +62,9 @@ category: cpp
   * [Deque - Array](./03-Linear-Data-Structures-and-Trees/Deque-Doubly-LL.md)
 * Tree:
   * [Tree Traversals](./03-Linear-Data-Structures-and-Trees/Tree.md)
-  * [Binary Search Tree]()
-* Self Balancing Trees
+  * [Binary Search Tree](./03-Linear-Data-Structures-and-Trees/Tree-BST.md)
+* Self Balancing Trees:
+  * [AVL Trees](./03-Linear-Data-Structures-and-Trees/Tree-AVL.md)
 
 ### Non-Linear Data Structures
 

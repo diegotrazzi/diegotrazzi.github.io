@@ -12,15 +12,15 @@ Linear search is the simplest search algorithm. It checks each element of a list
 
 ## Steps
 
-#### Step 1: Iterate
+### Step 1: Iterate
 
-- Start from the first element.
-- Compare each element with the target.
+* Start from the first element.
+* Compare each element with the target.
 
-#### Step 2: Return Result
+### Step 2: Return Result
 
-- If a match is found, return the index.
-- If the loop ends with no match, return -1 (or a "not found" indicator).
+* If a match is found, return the index.
+* If the loop ends with no match, return -1 (or a "not found" indicator).
 
 ## Full Implementation
 
@@ -39,8 +39,8 @@ int linearSearch(int arr[], int size, int target) {
 ### Time Complexity
 
 * Best Case: $O(1)$ (first element match)
-- Average Case: $O(n)$
-- Worst Case: $O(n)$
+* Average Case: $O(n)$
+* Worst Case: $O(n)$
 
 ### Space Complexity
 
@@ -53,20 +53,21 @@ int linearSearch(int arr[], int size, int target) {
 ### Advantages
 
 * Simple to implement
-- No need for sorted data
-- Works on any iterable structure
+* No need for sorted data
+* Works on any iterable structure
 
 ### Disadvantages
 
 * Inefficient for large datasets
-- Linear time in the worst case
+* Linear time in the worst case
 
 ### Use Cases
 
 * Small datasets
-- Unsorted data
-- When simplicity is preferred over performance
+* Unsorted data
+* When simplicity is preferred over performance
 
 ## REFERENCES
 
-	• Linear Search visualizer
+* [Algorithms Visualization](https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/visualize/)
+* [Comparison Sorting Algorithms - USF](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)

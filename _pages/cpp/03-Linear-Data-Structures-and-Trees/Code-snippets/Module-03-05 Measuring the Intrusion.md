@@ -51,6 +51,12 @@ private:
         return 1 + getDepth(node->parent);
     }
 
+    /**
+    * @param node   The current node in the traversal.
+    * @param target The target depth to compare against.
+    * @param count  The running total of nodes with depth less than target.
+    * @return       The total number of nodes shallower than the target depth.
+    */
     int measureIntrusion(Node* node, int target, int count) {
         if (node == nullptr) {
             return count;
@@ -62,8 +68,6 @@ private:
         count = measureIntrusion(node->right, target, count);
         return count;
     }
-
-    
 };
 
 

@@ -14,21 +14,21 @@ It is significantly faster than linear search for large datasets, but requires t
 
 ## Steps
 
-#### Step 1: Initialization
+### Step 1: Initialization
 
-- Set two pointers: `low = 0`, `high = size - 1`.
+* Set two pointers: `low = 0`, `high = size - 1`.
 
-#### Step 2: Search Loop
+### Step 2: Search Loop
 
-- While `low <= high`:
-  - Compute `mid = low + (high - low) / 2`.
-  - If `array[mid] == target`, return `mid`.
-  - If `target < array[mid]`, set `high = mid - 1`.
-  - Else, set `low = mid + 1`.
+* While `low <= high`:
+  * Compute `mid = low + (high - low) / 2`.
+  * If `array[mid] == target`, return `mid`.
+  * If `target < array[mid]`, set `high = mid - 1`.
+  * Else, set `low = mid + 1`.
 
-#### Step 3: Not Found
+### Step 3: Not Found
 
-- If the loop ends, return -1.
+* If the loop ends, return -1.
 
 ## Binary Search | For loop
 
@@ -78,19 +78,24 @@ This approach is significantly faster than a linear search, especially for large
 ### Time Complexity
 
 * Best Case: $O(1)$ (middle element match)
-- Average/Worst Case: $O(\log n)$
+* Average/Worst Case: $O(\log n)$
 
 ### Space Complexity
 
 * $O(1)$ for iterative version
-- $O(\log n)$ for recursive version (due to call stack)
+* $O(\log n)$ for recursive version (due to call stack)
 
 ### Advantages
 
 * Very fast on large, sorted datasets
-- Simple and efficient
+* Simple and efficient
 
 ### Disadvantages
 
 * Requires sorted input
-- Harder to implement correctly than linear search
+* Harder to implement correctly than linear search
+
+## REFERENCES
+
+* [Algorithms Visualization](https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/visualize/)
+* [Comparison Sorting Algorithms - USF](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)

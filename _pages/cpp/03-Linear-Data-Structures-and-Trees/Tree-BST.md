@@ -1,5 +1,5 @@
 ---
-title: "Tree"
+title: "Tree-BST"
 ---
 
 <div style="text-align: center;">
@@ -12,12 +12,14 @@ A Binary Search Tree (BST) is a hierarchical, node-based structure where:
 * The left child < node < right child, ensuring ordered data.
 * Subtrees must also follow BST rules.
 
-Key Benefits:
+## Key Benefits
 
 * Efficient search, insertion, deletion in $O(h)$, where h is the height.
 * In-order traversal yields sorted data.
 * Dynamically resizable, unlike arrays.
 * Self-balancing variants (AVL, Red-Black) ensure optimal performance.
+
+## Node
 
 ```cpp
 struct TreeNode {
@@ -139,7 +141,7 @@ Binary Search Trees can be printed in two ways:
 public:
   void inorderTraversal() {
         std::cout << "In-order Traversal:";
-        inorder(root);
+        inorderRecursive(root);
         std::cout << std::endl;
     }
 ```
