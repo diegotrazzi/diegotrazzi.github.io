@@ -6,7 +6,9 @@ title: "Tree-AVL"
   <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/Tree-AVL.webp" alt="AVL" height="350">
 </div>
 
-AVL trees are self-balancing binary search trees named after Adelson-Velsky and Landis. They maintain balance after insertions and deletions using rotations, ensuring operations remain efficient $O(log_n)$.
+AVL trees are self-balancing binary search trees named after Adelson-Velsky and Landis. They maintain balance after insertions and deletions using rotations, ensuring operations (insert, delete and search) remain efficient $O(log_n)$.
+
+ Space complexity remains O(n), with only a small constant overhead per node for storing height. Even in worst-case scenarios, AVL trees avoid becoming skewed, which makes them efficient for large datasets.
 
 ## Key Features
 
@@ -29,14 +31,13 @@ Has an extra attribute, `height` which is used to calculate the balance factor o
 class Node {
 public:
     int value, height;
-    Node* left;
-    Node* right;
+    Node *left, *right;
 
-    Node(int v) : value(v), height(1), left(nullptr), right(nullptr) {}
+    Node(int v) : value(v), height(0), left(nullptr), right(nullptr) {}
 };
 ```
 
-## Insertion
+## Public Methods
 
 ```cpp
 class AVLTree {
@@ -48,54 +49,16 @@ public:
         root = insert(root, value);
     }
 
-    void preOrder() {
-        preOrder(root);
+    void deleteValue(int value) {
+        root = deleteNode(root, value);
     }
-
-private:
-    Node* root;
-
-    Node* insert(Node* node, int value) {
-        if (node == nullptr)
-            return new Node(value);
-
-        if (value < node->value)
-            node->left = insert(node->left, value);
-        else if (value > node->value)
-            node->right = insert(node->right, value);
-
-        return node;
-    }
-
-    void preOrder(Node* node) {
-        if (node != nullptr) {
-            std::cout << node->value << " ";
-            preOrder(node->left);
-            preOrder(node->right);
-        }
-    }
-
-
-};
 ```
-
-## Rotations
-
-<div style="text-align: center;">
-  <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/Tree-Rebalancing.gif" alt="Rotations" height="600">
-</div>
-
-Rotaitons follow this sequence:
-
-1. Copy a child node
-2. Rotate the child and parent nodes
-3. Update the height of the parent node
-4. Update the height of the child node
-5. Return the child node
 
 ### Helper Methods
 
 To maintain balance in AVL trees, rotations are used to restructure the tree when insertions create imbalance. Each node tracks its height to calculate the balance factor, which determines if a rotation is needed.
+
+#### Height
 
 > :bulb: The **height** of a node is the **number of edges in the longest path from that node to a leaf.**
 
@@ -120,6 +83,64 @@ private:
         node->height = std::max(leftChildHeight, rightChildHeight) + 1;
     }
 ```
+
+#### Balance Factor
+
+```cpp
+private:
+    int balanceFactor(Node* node) {
+        return height(node->left) - height(node->right);
+    }
+```
+
+#### Min Value
+
+```cpp
+    Node* minValueNode(Node* node) {
+        Node* current = node;
+
+        while (current->left != nullptr) 
+            current = current->left;
+            
+        return current;
+    }
+```
+
+## Insertion
+
+```cpp
+private:
+    Node* insert(Node* node, int value) {
+        if (node == nullptr)
+            return (new Node(value));
+
+        if (value < node->value)
+            node->left = insert(node->left, value);
+        else if (value > node->value)
+            node->right = insert(node->right, value);
+        else 
+            return node;
+
+        updateHeight(node);
+
+        return rebalance(node);
+    }
+};
+```
+
+## Rotations
+
+<div style="text-align: center;">
+  <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/Tree-Rebalancing.gif" alt="Rotations" height="600">
+</div>
+
+Rotaitons follow this sequence:
+
+1. Copy a child node
+2. Rotate the child and parent nodes
+3. Update the height of the parent node
+4. Update the height of the child node
+5. Return the child node
 
 ### Left Rotation - S → S → R
 
@@ -163,4 +184,72 @@ Node* rotateLeft(Node* node) {
 
         return leftChild;
     }
+```
+
+
+
+## Rebalance
+
+```cpp
+    Node* rebalance(Node* node) {
+        int balanceFactor = this->balanceFactor(node);
+
+      // Left-heavy
+        if (balanceFactor > 1) {
+            if (this->balanceFactor(node->left) > 0) {
+                // Case 1: Left-Left
+                node = rotateRight(node);
+            } else {
+                // Case 2: Left-Right
+                node->left = rotateLeft(node->left);
+                node = rotateRight(node);
+            }
+        }
+                // Right-heavy
+        else if (balanceFactor < -1) {
+            if (this -> balanceFactor(node->right) < 0) {
+                // Case 3: Right-Right
+                node = rotateLeft(node);
+            } else {
+                // Case 4: Right-Left
+                node->right = rotateRight(node->right);
+                node = rotateLeft(node);
+            }
+        }
+        return node;
+    }   
+```
+
+## Deletion
+
+```cpp
+    Node* deleteNode(Node* root, int value) {
+        if (root == nullptr) {
+            return root;
+        }
+
+        if (value < root->value) {
+            root->left = deleteNode(root->left, value);
+        }
+        else if (value > root->value) {
+            root->right = deleteNode(root->right, value);
+        } else {
+            if (root->left == nullptr || root->right == nullptr) {
+                Node* temp = root->left ? root->left : root->right;
+                if (temp == nullptr) {
+                    return nullptr;
+                } else {
+                    return temp;
+                }
+            } else {
+                Node* temp = minValueNode(root->right);
+                root->value = temp->value;
+                root->right = deleteNode(root->right, temp->value);
+            }
+        }
+
+        updateHeight(root);
+        return rebalance(root);
+    }
+
 ```
