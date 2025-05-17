@@ -6,6 +6,8 @@ title: "Tree-B"
   <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/Tree-B.png" alt="B-Tree" height="150">
 </div>
 
+Each Child $Ci$ **holds values between $Ki-1$ and $Ki$**.
+
 A B-tree is a self-balancing search tree optimized for systems that read and write large blocks of data, like databases and file systems. It maintains sorted data and allows searches, insertions, and deletions in logarithmic time.
 
 * **Degree:** minimum number of **children** per node (except root)
@@ -195,7 +197,16 @@ private:
     }
 ```
 
-## Searcing
+## Searching
+
+Summary:
+
+1. Start at the root and perform binary search on the keys in the node.
+2. If the key is found, return true:
+   1. If not found and the node is a leaf, return false.
+   2. If not a leaf, recurse into the appropriate child, based on where the key would fit.
+
+### Searching | Public
 
 ```cpp
 public:
@@ -203,6 +214,8 @@ public:
             return search(root, key);
         }
 ```
+
+### Searching | Private
 
 ```cpp
 private:
@@ -234,6 +247,71 @@ private:
     }
 ```
 
+## Deletion
+
+<div style="text-align: center;">
+  <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/Tree-B-Delete.webp" alt="B-Tree" height="600">
+</div>
+
+Summary:
+
+1. Locating the key by traversing from the root.
+2. **Deleting from a leaf**: Remove the key if the node has enough keys.
+3. **Deleting from an internal node**: Replace the key with its **in-order predecessor or successor**, then delete that key.
+4. **Handling underflow**: If a node falls below the minimum keys, fix by:
+   1. Merging: Combine with a sibling and pull down a parent key.
+   2. Borrowing: Take a key from a sibling and adjust the parent.
+
+### Deletion | deletePredecessor
+
+Deletes the largest key in the subtree rooted at the given node. If internal, ensures the rightmost child has enough keys or merges before recursing.
+
+> :bulb: NOTE: **In a leaf, the minimum number of keys is degree - 1**, not the number of children, since leaf nodes have no children. This ensures leaves can safely lose one key if they start with at least 'degree' keys.
+
+If the node is not a leaf, deleting the predecessor involves:
+
+1. Identifying the left child of the key’s position.
+2. Recursing into the rightmost child path of that subtree to find the largest key (i.e., the predecessor).
+3. Before recursing, ensure the child has at least degree keys:
+   1. If not, call **deleteMerge** to merge with a sibling.
+   2. If it has enough, optionally call **deleteSibling** to balance.
+
+Each recursion step maintains B-Tree properties by ensuring the subtree has enough keys to delete from.
+
+```cpp
+private:
+    // Deletes and returns the predecessor key (largest in left subtree)
+    int deletePredecessor(BTreeNode* node) {
+        // Base case: if leaf, just remove and return the last key
+        if (node->leaf) {
+            int lastKey = node->keys.back();
+            node->keys.pop_back();
+            return lastKey;
+        }
+
+        // Recurse into the rightmost child to find the predecessor (case 2a)
+        // We use n as the left ponter of the node to delete!
+        int n = node->keys.size() - 1;
+
+        // Ensure the child has enough keys before recursion
+        if (node->children[n]->keys.size() >= degree) {
+            deleteSibling(node, n + 1, n); // Balance with right sibling if needed
+        } else {
+            deleteMerge(node, n, n + 1);   // Merge if underflow would occur
+        }
+
+        // Continue recursion
+        return deletePredecessor(node->children[n]);
+    }
+```
+
+	•	deleteSuccessor: Finds and deletes the smallest key in the right subtree. Similar logic to deletePredecessor.
+	•	deleteInternalNode: Deletes a key from an internal node. Uses predecessor or successor if possible; otherwise merges children and recurses.
+	•	deleteSibling: Borrows a key from a sibling to fix underflow. Adjusts keys and children pointers accordingly.
+	•	deleteMerge: Merges two children into one when both have too few keys, then updates parent.
+	•	findKey: Locates the index of the key to delete in a node.
+	•	handleUnderflow: Resolves underflow after deletion by borrowing from or merging with siblings.
+	•	Main Update: Initializes B-Tree with keys: 21, 5, 99, 34, 13, 58, 19, 17.
 ## References
 
 * [B-Tree Visualizer](https://www.cs.usfca.edu/~galles/visualization/BTree.html)
