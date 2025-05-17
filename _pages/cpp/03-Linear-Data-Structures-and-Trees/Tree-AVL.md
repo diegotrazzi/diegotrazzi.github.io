@@ -106,28 +106,6 @@ private:
     }
 ```
 
-## Insertion
-
-```cpp
-private:
-    Node* insert(Node* node, int value) {
-        if (node == nullptr)
-            return (new Node(value));
-
-        if (value < node->value)
-            node->left = insert(node->left, value);
-        else if (value > node->value)
-            node->right = insert(node->right, value);
-        else 
-            return node;
-
-        updateHeight(node);
-
-        return rebalance(node);
-    }
-};
-```
-
 ## Rotations
 
 <div style="text-align: center;">
@@ -144,6 +122,16 @@ Rotaitons follow this sequence:
 
 ### Left Rotation - S → S → R
 
+🧠 **Visual Memory Hook:**
+
+```ascii
+    X                     Y
+   / \\                 // \
+ (A)  Y      ==>        X   (C)
+    // \               / \\
+   (B) (C)           (A) (B)
+```
+
 “Save → Shift → Reattach”
 
 1. Save the right child → rightChild = node->right
@@ -156,9 +144,9 @@ Node* rotateLeft(Node* node) {
         return node;
     }
     // S → S → R
-    Node* rightChild = node->right;
-    node->right = rightChild->left;
-    rightChild->left = node;
+    Node* rightChild = node->right; // extract right child (Y)
+    node->right = rightChild->left; // extract (Y->L) subGraph & attach it to head (X->R)
+    rightChild->left = node; // reatach the head as L child 
 
     updateHeight(node);
     updateHeight(rightChild);
@@ -186,7 +174,27 @@ Node* rotateLeft(Node* node) {
     }
 ```
 
+## Insertion
 
+```cpp
+private:
+    Node* insert(Node* node, int value) {
+        if (node == nullptr)
+            return (new Node(value));
+
+        if (value < node->value)
+            node->left = insert(node->left, value);
+        else if (value > node->value)
+            node->right = insert(node->right, value);
+        else 
+            return node; // becomes nullptr when we find the value
+
+        updateHeight(node);
+
+        return rebalance(node);
+    }
+};
+```
 
 ## Rebalance
 

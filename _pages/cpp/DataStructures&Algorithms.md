@@ -61,10 +61,13 @@ category: cpp
   * [Deque - Array](./03-Linear-Data-Structures-and-Trees/Deque-Array.md)
   * [Deque - Array](./03-Linear-Data-Structures-and-Trees/Deque-Doubly-LL.md)
 * Tree:
-  * [Tree Traversals](./03-Linear-Data-Structures-and-Trees/Tree.md)
+  * [Tree Traversals](./03-Linear-Data-Structures-and-Trees/Tree-Traversals.md)
   * [Binary Search Tree](./03-Linear-Data-Structures-and-Trees/Tree-BST.md)
 * Self Balancing Trees:
   * [AVL Trees](./03-Linear-Data-Structures-and-Trees/Tree-AVL.md)
+  * [Red & Black Trees](./03-Linear-Data-Structures-and-Trees/Tree-Red-Black.md)
+  * [B-Tree](./03-Linear-Data-Structures-and-Trees/Tree-B-Tree.md)
+  * :bulb: [[NEW IDEA] - Adaptive Resolution Hybrid Tree](./03-Linear-Data-Structures-and-Trees/Tree-Adaptive-Resolution-Hybrid.md)
 
 ### Non-Linear Data Structures
 

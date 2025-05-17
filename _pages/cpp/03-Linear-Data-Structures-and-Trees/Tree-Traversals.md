@@ -1,5 +1,5 @@
 ---
-title: "Tree"
+title: "Tree Traversals"
 ---
 
 <div style="text-align: center;">
