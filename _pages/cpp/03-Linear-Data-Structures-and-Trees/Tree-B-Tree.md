@@ -253,28 +253,75 @@ private:
   <img src="/images/cpp/03-Linear-Data-Structures-and-Trees/Tree-B-Delete.webp" alt="B-Tree" height="600">
 </div>
 
-Summary:
+The deleteNode method deletes key `k` from a B-tree starting at node:
 
-1. Locating the key by traversing from the root.
+1. **Locating the key** by traversing from the root.
 2. **Deleting from a leaf**: Remove the key if the node has enough keys.
 3. **Deleting from an internal node**: Replace the key with its **in-order predecessor or successor**, then delete that key.
 4. **Handling underflow**: If a node falls below the minimum keys, fix by:
    1. Merging: Combine with a sibling and pull down a parent key.
    2. Borrowing: Take a key from a sibling and adjust the parent.
 
-### Deletion | deletePredecessor
+> :bulb: NOTE: **In a leaf, the minimum number of keys is degree - 1**, not the number of children, since leaf nodes have no children. This ensures leaves can safely lose one key if they start with at least 'degree' keys.
+
+### Deletion | Main Delete | Public
+
+```cpp
+public:
+    void deleteKey(int key) {
+        deleteNode(root, key);
+    }
+```
+
+### Deletion | Main Delete | Private
+
+```cpp
+private:
+    void deleteNode(BTreeNode* node, int k) {
+        // Find the index i where key k should be or is located
+        int i = findKey(node, k);
+
+        // If node is a leaf
+        if (node->leaf) {
+            // If key k is found at index i, remove it
+            if (i < node->keys.size() && node->keys[i] == k) {
+                node->keys.erase(node->keys.begin() + i);
+                // should also call shrink_to_fit() for memory performance
+            }
+            return; // Finished deletion in leaf
+        }
+
+        // If node is internal and key k is at index i
+        if (i < node->keys.size() && node->keys[i] == k) {
+            // Handle deletion inside internal node
+            deleteInternalNode(node, k, i);
+        } else {
+            // Key k not found in current node; check child at index i
+            // If child has fewer keys than degree, fix underflow
+            if (node->children[i]->keys.size() < degree) {
+                handleUnderflow(node, i);
+                // Update i if underflow handling changed children
+                if (i >= node->children.size()) {
+                    i = node->children.size() - 1;
+                }
+            }
+            // Recursively delete key k in child node at updated index i
+            deleteNode(node->children[i], k);
+        }
+    }
+```
+
+### Deletion | Helper Methods | deletePredecessor
 
 Deletes the largest key in the subtree rooted at the given node. If internal, ensures the rightmost child has enough keys or merges before recursing.
-
-> :bulb: NOTE: **In a leaf, the minimum number of keys is degree - 1**, not the number of children, since leaf nodes have no children. This ensures leaves can safely lose one key if they start with at least 'degree' keys.
 
 If the node is not a leaf, deleting the predecessor involves:
 
 1. Identifying the left child of the key’s position.
 2. Recursing into the rightmost child path of that subtree to find the largest key (i.e., the predecessor).
 3. Before recursing, ensure the child has at least degree keys:
-   1. If not, call **deleteMerge** to merge with a sibling.
-   2. If it has enough, optionally call **deleteSibling** to balance.
+   1. If it has enough, call **deleteSibling** to balance.
+   2. If not, call **deleteMerge** to merge with a sibling.
 
 Each recursion step maintains B-Tree properties by ensuring the subtree has enough keys to delete from.
 
@@ -305,13 +352,359 @@ private:
     }
 ```
 
-	•	deleteSuccessor: Finds and deletes the smallest key in the right subtree. Similar logic to deletePredecessor.
-	•	deleteInternalNode: Deletes a key from an internal node. Uses predecessor or successor if possible; otherwise merges children and recurses.
-	•	deleteSibling: Borrows a key from a sibling to fix underflow. Adjusts keys and children pointers accordingly.
-	•	deleteMerge: Merges two children into one when both have too few keys, then updates parent.
-	•	findKey: Locates the index of the key to delete in a node.
-	•	handleUnderflow: Resolves underflow after deletion by borrowing from or merging with siblings.
-	•	Main Update: Initializes B-Tree with keys: 21, 5, 99, 34, 13, 58, 19, 17.
+### Deletion | Helper Methods | deleteSuccessor
+
+This method deletes the successor key, which is the smallest key in the right subtree. Here’s what it does:
+
+* If node is a leaf: Remove and return the first key (smallest key in this node).
+* If node is internal:
+  * The successor lives in the leftmost path of the right child.
+  * Ensure children[0] (left child of successor’s parent) has enough keys:
+    * If children[1] (right sibling) has enough, call deleteSibling(0, 1).
+    * Else, deleteMerge(0, 1) to combine siblings.
+  * Then recurse into children[0] to find and delete the actual successor.
+
+💡 This is typically used after swapping a key in an internal node with its successor, to remove that key from the leaf.
+
+```cpp
+private:
+    int deleteSuccessor(BTreeNode* node) {
+        if (node->leaf) {
+            int firstKey = node->keys.front();
+            node->keys.erase(node->keys.begin());
+            return firstKey;
+        }
+        if (node->children[1]->keys.size() >= degree) {
+            deleteSibling(node, 0, 1);
+        } else {
+            deleteMerge(node, 0, 1);
+        }
+        return deleteSuccessor(node->children[0]);
+    }
+```
+
+### Deletion | Helper Methods | deleteInternalNode
+
+Deletes a key from an internal node. Uses predecessor or successor if possible; otherwise merges children and recurses.
+
+* Leaf case: If the node is a leaf and contains the key k at index i, simply erase it.
+* Internal node case. We need to replace it with a valid key from children while maintaining B-tree rules:
+  * Left child has enough keys → Replace the key with its predecessor using deletePredecessor.
+  * Right child has enough keys → Replace the key with its successor using deleteSuccessor.
+  * Neither has enough keys → Merge the children, then recursively delete in the merged node.
+
+This ensures the tree stays balanced and all nodes maintain minimum key constraints.
+
+```cpp
+private:
+    void deleteInternalNode(BTreeNode* node, int k, int i) {
+        if (node->leaf) {
+            if (node->keys[i] == k) {
+                node->keys.erase(node->keys.begin() + i);
+            }
+            return;
+        }
+        if (node->children[i]->keys.size() >= degree) {
+            node->keys[i] = deletePredecessor(node->children[i]);
+            return;
+        } else if (node->children[i + 1]->keys.size() >= degree) {
+            node->keys[i] = deleteSuccessor(node->children[i + 1]);
+            return;
+        } else {
+            deleteMerge(node, i, i + 1);
+            deleteInternalNode(node->children[i], k, degree - 1);
+        }
+    }
+```
+
+### Deletion | Helper Methods | deleteSibling
+
+This method borrows a key from a sibling to fix an underflow in the child node cnode at index i.
+
+* If i < j (borrow from right sibling):
+  * Move the parent’s key at i down to cnode.
+  * Replace that parent’s key with the first key of the right sibling (rsnode).
+  * Move the leftmost child of rsnode to cnode if exists.
+  * Remove that first key and child from rsnode.
+* Else (borrow from left sibling):
+  * Move the parent’s key at i-1 down to the front of cnode’s keys.
+  * Replace that parent’s key with the last key of the left sibling (lsnode).
+  * Move the rightmost child of lsnode to the front of cnode’s children if exists.
+  * Remove that last key and child from lsnode.
+
+Here’s a simple example to illustrate how deleteSibling works when borrowing from a sibling. B-Tree of degree 3 (max 5 keys, min 2). Initial structure:
+
+```ascii
+        [30]
+       /    \
+   [10,20]  [40,50,60]
+```
+
+Now suppose we delete 20 from the left child [10,20], leaving it with only one key [10]. This is below the minimum (which is 2), so we must fix the underflow.
+
+We call:
+
+deleteSibling(parent, i = 0, j = 1);  // Left child (index 0) borrows from right sibling (index 1)
+
+⸻
+
+What happens:
+ • cnode = children[0] = [10]
+ • rsnode = children[1] = [40,50,60]
+ • Parent key at index 0 is 30
+
+Now we do:
+ 1. Move 30 from parent to end of cnode: [10, 30]
+ 2. Replace parent key 30 with 40 from right sibling
+ 3. Remove 40 from rsnode
+
+After operation:
+
+```ascii
+        [40]
+       /    \
+ [10,30]  [50,60]
+```
+
+✅ Underflow fixed by borrowing from right sibling.
+
+```cpp
+private:
+void deleteSibling(BTreeNode* node, int i, int j) {
+    
+    // i is the index of the child needing balancing (underflowing).
+    // j is the index of the sibling used to balance it (either left or right).
+    
+    BTreeNode* cnode = node->children[i];  // Current node - Underflowing child needing keys
+
+    if (i < j) {  // Borrow from right sibling
+        BTreeNode* rsnode = node->children[j];  // Right sibling with extra keys
+
+        // Move parent's key[i] down to cnode keys (append at end)
+        cnode->keys.push_back(node->keys[i]);
+
+        // Replace parent's key[i] with first key from right sibling
+        node->keys[i] = rsnode->keys.front();
+
+        // If right sibling has children, move its leftmost child to cnode
+        if (!rsnode->children.empty()) {
+            cnode->children.push_back(rsnode->children.front());
+            rsnode->children.erase(rsnode->children.begin());
+        }
+
+        // Remove the first key from right sibling (moved up to parent)
+        rsnode->keys.erase(rsnode->keys.begin());
+
+    } else {  // Borrow from left sibling
+        BTreeNode* lsnode = node->children[j];  // Left sibling with extra keys
+
+        // Move parent's key[i-1] down to cnode keys (insert at front)
+        cnode->keys.insert(cnode->keys.begin(), node->keys[i - 1]);
+
+        // Replace parent's key[i-1] with last key from left sibling
+        node->keys[i - 1] = lsnode->keys.back();
+
+        // Remove last key from left sibling (moved up to parent)
+        lsnode->keys.pop_back();
+
+        // If left sibling has children, move its rightmost child to cnode front
+        if (!lsnode->children.empty()) {
+            cnode->children.insert(cnode->children.begin(), lsnode->children.back());
+            lsnode->children.pop_back();
+        }
+    }
+}
+```
+
+### Deletion | Helper Methods | deleteMerge
+
+Merges two child nodes (i and j) when one has too few keys after deletion.
+
+* If merging with the right sibling (j > i):
+  * Move key[i] from parent down into child[i].
+  * Append all keys and children from child[j] to child[i].
+  * Remove key[i] and child[j] from parent.
+* If merging with the left sibling (j < i):
+  * Move key[j] from parent down into child[j].
+  * Append all keys and children from child[i] to child[j].
+  * Remove key[j] and child[i] from parent.
+  * If parent becomes empty and is root, promote merged child as new root.
+
+```cpp
+private:
+    void deleteMerge(BTreeNode* node, int i, int j) {
+        BTreeNode* cnode = node->children[i];  // Child at index i (left child in merge)
+        BTreeNode* newNode;
+
+        if (j > i) {
+            // Merge with right sibling
+            BTreeNode* rsnode = node->children[j];  // Right sibling
+
+            // Move parent's key[i] down to cnode keys
+            cnode->keys.push_back(node->keys[i]);
+
+            // Append all keys from right sibling to cnode
+            for (int k = 0; k < rsnode->keys.size(); ++k) {
+                cnode->keys.push_back(rsnode->keys[k]);
+
+                // If right sibling has children, append corresponding child
+                if (!rsnode->children.empty()) {
+                    cnode->children.push_back(rsnode->children[k]);
+                }
+            }
+
+            // Append last child of right sibling if exists
+            if (!rsnode->children.empty()) {
+                cnode->children.push_back(rsnode->children.back());
+                rsnode->children.pop_back();
+            }
+
+            newNode = cnode;
+
+            // Remove parent's key and right sibling after merge
+            node->keys.erase(node->keys.begin() + i);
+            node->children.erase(node->children.begin() + j);
+
+        } else {
+            // Merge with left sibling
+            BTreeNode* lsnode = node->children[j];  // Left sibling
+
+            // Move parent's key[j] down to left sibling keys
+            lsnode->keys.push_back(node->keys[j]);
+
+            // Append all keys from cnode to left sibling
+            for (int k = 0; k < cnode->keys.size(); ++k) {
+                lsnode->keys.push_back(cnode->keys[k]);
+
+                // If cnode has children, append corresponding child
+                if (!cnode->children.empty()) {
+                    lsnode->children.push_back(cnode->children[k]);
+                }
+            }
+
+            // Append last child of cnode if exists
+            if (!cnode->children.empty()) {
+                lsnode->children.push_back(cnode->children.back());
+                cnode->children.pop_back();
+            }
+
+            newNode = lsnode;
+
+            // Remove parent's key and cnode after merge
+            node->keys.erase(node->keys.begin() + j);
+            node->children.erase(node->children.begin() + i);
+        }
+
+        // If the root is empty after merge, update root pointer
+        if (node == root && node->keys.empty()) {
+            root = newNode;
+        }
+    }
+```
+
+### Deletion | Helper Methods | findKey
+
+The findKey method returns the index of the first key in the node that is not less than the given key k. If the key exists, the index points to it; if not, it shows where k would be inserted or searched next in the children.
+
+```cpp
+private:
+    // Finds the index of the first key in node >= k
+    // Returns index where k should be or is located
+    int findKey(BTreeNode* node, int k) {
+        int idx = 0;
+        while (idx < node->keys.size() && node->keys[idx] < k) {
+            ++idx;
+        }
+        return idx;
+    }
+```
+
+### Deletion | Helper Methods | handleUnderflow
+
+`handleUnderflow` manages a child node with fewer keys than allowed by:
+
+* Borrowing from the left sibling if it has enough keys (deleteSibling).
+* Borrowing from the right sibling if it has enough keys (deleteSibling).
+* Merging with the left sibling if it exists but lacks keys (deleteMerge), adjusting the index.
+* Merging with the right sibling if the node is the leftmost child and siblings lack keys (deleteMerge).
+
+```cpp
+private:
+  void handleUnderflow(BTreeNode* node, int idx) {
+        // idx is the index of the child in the parent’s children array that is currently underflowing (has too few keys). It indicates which child node needs borrowing or merging to fix the underflow.
+
+        // Try to borrow a key from the left sibling if it exists and has enough keys
+        if (idx != 0 && node->children[idx - 1]->keys.size() >= degree) {
+            deleteSibling(node, idx, idx - 1);
+        }
+        // Otherwise, try to borrow from the right sibling if it exists and has enough keys
+        else if (idx + 1 < node->children.size() && node->children[idx + 1]->keys.size() >= degree) {
+            deleteSibling(node, idx, idx + 1);
+        }
+        // If siblings don't have enough keys, merge with the left sibling if possible
+        else if (idx != 0) {
+            deleteMerge(node, idx - 1, idx);
+            idx--; // Adjust idx because merged node moves left
+        }
+        // Otherwise, merge with the right sibling
+        else {
+            deleteMerge(node, idx, idx + 1);
+        }
+    }
+```
+
+### Deletion | Example
+
+Initial B-Tree (order 3):
+
+```ascii
+              [2010]
+           /          \
+     [1998]         [2012, 2016]
+     /    \         /     |     \
+[1996] [1999]  [2011] [2015] [2023]
+```
+
+Delete key 2015:
+
+* 2015 is in a leaf node [2015] (middle child of [2012, 2016]).
+* After deletion, [2015] becomes empty → underflow.
+* Underflow must be fixed.
+
+Step-by-step:
+
+* Check siblings of empty node [ ]:
+  * Left sibling: [2011] has only 1 key → cannot lend.
+  * Right sibling: [2023] has only 1 key → cannot lend.
+* Merge with a sibling:
+  * Merge [2011], 2012 (from parent), and [ ] (was [2015]).
+* Result: [2011, 2012]
+* Parent [2012, 2016] becomes [2016] and now has only two children: [2011, 2012] and [2023].
+
+Final tree:
+
+```ascii
+              [2010]
+           /          \
+     [1998]           [2016]
+     /    \           /     \
+[1996] [1999]  [2011, 2012] [2023]
+```
+
+## B-Tree Complexity
+
+### Search, Insert, Delete
+
+Time complexity is $O(log n)$ — due to logarithmic height and binary/key search at each node.
+  
+### Space Complexity
+
+$O(n)$ — total space grows linearly with number of keys.
+
+### Efficiency
+
+Balanced height and node capacity make B-Trees ideal for large datasets in databases and file systems.
+
 ## References
 
 * [B-Tree Visualizer](https://www.cs.usfca.edu/~galles/visualization/BTree.html)
