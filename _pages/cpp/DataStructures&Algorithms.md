@@ -23,6 +23,9 @@ category: cpp
 * Divide and Conquer
 * [Greedy Algorithms](./02-Algorithms/Greedy-Algorithms.md)
 * [Dynamic Programming](./02-Algorithms/Dynamic-Programming.md)
+
+#### Sorting
+
 * Sorting Algorithms:
   * [Selection Sort](./02-Algorithms/Sorting-Algorithms-Selection-Sort.md)
   * [Bubble Sort](./02-Algorithms/Sorting-Algorithms-Bubble-Sort.md)
@@ -30,10 +33,26 @@ category: cpp
   * Recursion (divide-and-conquer):
     * [Merge Sort](./02-Algorithms/Sorting-Algorithms-Merge-Sort.md)
     * [Quick Sort](./02-Algorithms/Sorting-Algorithms-Quick-Sort.md)
-  * Searching Algorithms:
-    * [Linear Search](./02-Algorithms/Search-Linear.md)
-    * [Binary Search](./02-Algorithms/Search-Binary.md)
-    * [Jump Search](./02-Algorithms/Search-Jump.md)
+    * [Heap Sort](./04-Non-Linear-Data-Structures/Heap-Sort.md)
+
+##### Quick Comparison Table (Worst to Best)
+
+| Sorting Algorithm  | Best Case   | Average Case | Worst Case  | Stability | In-Place |
+|--------------------|-------------|---------------|--------------|-----------|----------|
+| **Bubble Sort**     | O(n)        | O(n²)         | O(n²)        | Yes       | Yes      |
+| **Selection Sort**  | O(n²)       | O(n²)         | O(n²)        | No        | Yes      |
+| **Insertion Sort**  | O(n)        | O(n²)         | O(n²)        | Yes       | Yes      |
+| **Quick Sort**      | O(n log n)  | O(n log n)    | O(n²)        | No        | Yes      |
+| **Heap Sort**       | O(n log n)  | O(n log n)    | O(n log n)   | No        | Yes      |
+| **Merge Sort**      | O(n log n)  | O(n log n)    | O(n log n)   | Yes       | No       |
+
+#### Searching
+
+* Searching Algorithms:
+  * [Linear Search](./02-Algorithms/Search-Linear.md)
+  * [Binary Search](./02-Algorithms/Search-Binary.md)
+  * [Jump Search](./02-Algorithms/Search-Jump.md)
+
 
 ### ADT - Abstract Tata Types
 
@@ -71,6 +90,11 @@ category: cpp
 
 ### Non-Linear Data Structures
 
+* Heaps:
+  * [Heap](./04-Non-Linear-Data-Structures/Heap.md)
+  * [Heap Based Priority Queue](./04-Non-Linear-Data-Structures/Heap-Priority-Queue.md)
+  * [Double Ended Priority Queue - DEPQ](./04-Non-Linear-Data-Structures/Heap-DEPQ.md)
+  * [Heap Sort](./04-Non-Linear-Data-Structures/Heap-Sort.md)
 ...
 
 ## Online Resources
